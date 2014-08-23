@@ -1,0 +1,73 @@
+/* iCheck plugin Futurico skin
+----------------------------------- */
+.icheckbox_futurico,
+.iradio_futurico,
+.icheckbox_futurico2{
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+    background: url("images/radio.png") no-repeat;
+    border: none;
+    cursor: pointer;
+}
+.registration_wrapper .icheckbox_futurico,
+.registration_wrapper .iradio_futurico {
+float:left;
+clear:both;
+}
+
+    .icheckbox_futurico.checked {
+        background:url("images/radio_checked.png") no-repeat;
+    }
+	    .icheckbox_futurico2.checked {
+        background:url("images/radio_checked.png") no-repeat;
+    }
+	.icheckbox_futurico.checked:hover, .icheckbox_futurico2.checked:hover {
+		background:url("images/radio_checked_hover.png") no-repeat;
+	}
+		.icheckbox_futurico:hover,.icheckbox_futurico2:hover{
+		background:url("images/radio_hover.png") no-repeat;
+	}
+    .icheckbox_futurico.disabled {
+        background-position: -36px 0;
+        cursor: default;
+    }
+    .icheckbox_futurico.checked.disabled {
+        background-position: -54px 0;
+    }
+.icheckbox_dark_blue{
+    vertical-align: middle;
+}
+.icheckbox_dark_blue.checked {
+        background:url("images/dark_blue_checkbox.png") no-repeat;
+}
+.icheckbox_black {
+        background:url("images/black_radiobutton.png") no-repeat;
+		 float: left;
+    height: 20px;
+    width: 20px;
+	margin-left: 10px;
+    margin-right: 7px;
+    margin-top: 11px;
+}
+.icheckbox_black.checked {
+        background:url("images/black_radiobutton_checked.png") no-repeat;
+}
+.iradio_futurico {
+    background-position: -72px 0;
+}
+    .iradio_futurico.checked {
+        background-position: -90px 0;
+    }
+    .iradio_futurico.disabled {
+        background-position: -108px 0;
+        cursor: default;
+    }
+    .iradio_futurico.checked.disabled {
+        background-position: -126px 0;
+    }
+
