@@ -4357,15 +4357,30 @@ border-bottom-right-radius:0;
 }
 .add_cash_popup .create_stream_wrapper .left_block {
     height: 658px;
+  
 }
-.add_cash_popup .create_stream_wrapper .right_block {
-    height: 658px;
-    margin-top:0;
+.add_cash_popup .registr_header {
+    width: 860px;
+    padding-top: 0;
+    margin-left: 35px;
 }
+.add_cash_popup .create_stream_wrapper {
+    width:950px;
+background:no-repeat top center #e0dfe1;
+overflow:hidden;
+box-shadow:0 0 10px rgba(0,0,0,0.5);
+border-radius: 2px;
+border:1px solid #ababab;
+height:656px;
+}
+
 .toRobocass {
+    margin-left: 500px;
+    margin-left: 500px;
     margin-top:107px;
 }
 .robocass_menu {
+    float:right;
     height:200px;
 
 }

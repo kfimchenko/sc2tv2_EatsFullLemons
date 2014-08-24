@@ -850,14 +850,28 @@ $(document).ready(function(){
 	//height in case of rating
         /*  В индекс.хтмл есть спан  padding, в нем пишется численное значение, на сайт
          * это не выводится, но скрипт считывает его, и по его значениям строит
-         * линию рейтинга 
+         * линию рейтинга. 
+         * Переменная padd в функции ниже - есть значение паддинга из индекс.хтмл
+         * падд является суммарным рейтингом всех стриммеров в одном таймблоке.
+         * Минимальный padding в индекс хтмл - 1. при 0 не работает.
+         * Максимальный padding - 137
+         * if x<strcount*27 - 
+         * then 
+         * 117
          */
 	$('.one_time_block').each(function(){
             var padd = parseInt($(this).find('.padding').text());
-            var stream_row_count = $('.one_time_block > .stream_row').size();       
-            $(this).find('.streams_at_this_time').css('margin-top',padd);
-            $(this).find('.straight_down').css('margin-top',padd);
-            $(this).find('.straight_down').css('padding-bottom',$('.one_time_block').height() - padd -30);
+               var strc = $(this).find('.stream_row').size();
+               if (padd>(137-(strc*27))) {
+                   var x = 137 - padd;
+                $(this).find('.streams_at_this_time').css('margin-top',padd - (27*strc-x));
+                $(this).find('.straight_down').css('margin-top',padd);
+                $(this).find('.straight_down').css('padding-bottom',$('.one_time_block').height() - padd -30);
+               } else {
+                $(this).find('.streams_at_this_time').css('margin-top',padd);
+                $(this).find('.straight_down').css('margin-top',padd);
+                $(this).find('.straight_down').css('padding-bottom',$('.one_time_block').height() - padd -30);
+               }
 		
 	});
 	//height in case of rating FOR STREAMER PAGE
