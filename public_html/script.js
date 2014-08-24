@@ -848,10 +848,16 @@ $(document).ready(function(){
 			$(this).hide();
 	});
 	//height in case of rating
+        /*  В индекс.хтмл есть спан  padding, в нем пишется численное значение, на сайт
+         * это не выводится, но скрипт считывает его, и по его значениям строит
+         * линию рейтинга 
+         */
 	$('.one_time_block').each(function(){
-		$(this).find('.streams_at_this_time').css('margin-top',parseInt($(this).find('.padding').text()));
-		$(this).find('.straight_down').css('margin-top',parseInt($(this).find('.padding').text()));
-		$(this).find('.straight_down').css('padding-bottom',$('.one_time_block').height() - parseInt($(this).find('.padding').text())-30);
+            var padd = parseInt($(this).find('.padding').text());
+            var stream_row_count = $('.one_time_block > .stream_row').size();       
+            $(this).find('.streams_at_this_time').css('margin-top',padd);
+            $(this).find('.straight_down').css('margin-top',padd);
+            $(this).find('.straight_down').css('padding-bottom',$('.one_time_block').height() - padd -30);
 		
 	});
 	//height in case of rating FOR STREAMER PAGE
