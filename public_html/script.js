@@ -772,12 +772,13 @@ $(document).ready(function(){
 		});
 		//dell after test
 		$('.chat_message .user_name').click(function(){
+                        $('.click_user_popup').hide();
 			if ( ($(this).offset().top-$('.chat_body .chat_wrapper').offset().top)<110)
 				$(this).parent().find('.click_user_popup.action_user').addClass('bottom');
 			else
 				$(this).parent().find('.click_user_popup.action_user').removeClass('bottom');
 			$(this).parent().find('.click_user_popup.action_user').show();
-		});
+		});   
 		
 /*ROOM RIGHT BLOCK*/
 	$('.room_right_block_images .poll').click(function(){
