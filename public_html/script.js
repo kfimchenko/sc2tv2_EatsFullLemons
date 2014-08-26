@@ -935,6 +935,10 @@ $(document).ready(function(){
 			theme:"light"
 		});
 	});
+        $('.selectBox-menuShowing-bottom').mCustomScrollbar({
+			axis:"y",
+			theme:"light"
+	});
 	//smiles_list
 	$('.chat_list_wrapper').mCustomScrollbar({
 			axis:"y",
@@ -1116,11 +1120,16 @@ $(document).ready(function(){
 		radioClass: 'icheckbox_black'
 	});
 	
+      
 	
 	/*GROUP OF CUSTOM SELECTBOXES*/
 	
 	//use this for all site selectses
 	$("select").selectBox();
+        $("select").mCustomScrollbar({
+            axis:"y",
+            theme:"light",
+        })
 	
 	/*GROUP OF HINTS*/
 	
