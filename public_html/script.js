@@ -928,14 +928,14 @@ $(document).ready(function(){
 			theme:"light"
 		});
 	});
-	//chat	
-	$('.chat_wrapper').each(function(){
+	//chat	(перенесено в chat.js)
+	/*$('.chat_wrapper').each(function(){
 		$(this).mCustomScrollbar({
 			axis:"y",
 			theme:"light"
 		});
-	});
-        $('.selectBox-menuShowing-bottom').mCustomScrollbar({
+	});*/
+    $('.selectBox-menuShowing-bottom').mCustomScrollbar({
 			axis:"y",
 			theme:"light"
 	});
