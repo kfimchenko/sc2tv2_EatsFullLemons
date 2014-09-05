@@ -933,12 +933,12 @@ $(document).ready(function(){
 		});
 	});
 	//chat	(перенесено в chat.js)
-	/*$('.chat_wrapper').each(function(){
+	$('.chat_wrapper').each(function(){
 		$(this).mCustomScrollbar({
 			axis:"y",
 			theme:"light"
 		});
-	});*/
+	});
     $('.selectBox-menuShowing-bottom').mCustomScrollbar({
 			axis:"y",
 			theme:"light"
