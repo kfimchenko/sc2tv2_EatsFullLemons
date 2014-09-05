@@ -682,15 +682,19 @@ $(document).ready(function(){
 	});
 	$('.registration_popup .close_btn').click(function(){
 		$('.registration_popup').hide();
+                $('.user_main_menu .some_li').find('div').removeClass('active');
 	});
 	$('.valute_popup .close_btn').click(function(){
 		$('.valute_popup').hide();
+                $('.user_main_menu .some_li').find('div').removeClass('active');
 	});
 	$('.create_stream_popup .close_btn').click(function(){
 		$('.create_stream_popup').hide();
+                $('.user_main_menu .some_li').find('div').removeClass('active');
 	});
         $('.add_cash_popup .close_btn').click(function(){
 		$('.add_cash_popup').hide();
+                $('.user_main_menu .some_li').find('div').removeClass('active');
             });
 	//show forget password popup
 	$('.forgot').click(function(){
