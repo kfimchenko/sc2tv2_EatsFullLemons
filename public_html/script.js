@@ -289,8 +289,13 @@ $(document).ready(function(){
 		$(this).addClass('active');
 		$('.selected_channel .text').text($(this).find('.chat_name').text());
 	});
-	//buttons under the chat 
+	//buttons under the chat
+    $(document).on('click', function () { //закрытие опций, если клик где-либо в документе
+        $('.options.chat_pic').removeClass('active');
+        $('.click_user_popup.option_popup').hide();
+    });
 	$('.user_chats .chat_pic').click(function(){
+        ev.stopPropagation(); //отменяет предыдующую фун-ию, если клик на кнопке опций
 		$('.click_user_popup').hide();
 		$('.user_chats .chat_pic').removeClass('active');
 		if ($(this).hasClass('active'))
