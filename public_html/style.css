@@ -3492,6 +3492,9 @@ float:left;
 font-size:15px;
 color:#333333;
 }
+#show_all_news_popup {
+    width:250px;
+}
 .show_all_news p{
 float:left;
 }
@@ -3665,6 +3668,7 @@ padding-left:3px;
 	float: left;
 	position:relative;
 	text-align:center;
+        cursor:pointer;
 	
 }
 .rating_field .number{
