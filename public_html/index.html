@@ -42,6 +42,7 @@
 			<!---AUTHORIZED-->
 			<div class="top_header_user_menu">
 				<div class="user_pic">
+					<span class="mess">33</span>
 					<div class="user_avatar">
 						<img src="images/avatar.jpg" alt="avatar" width="26" height="26"/>
 					</div>
@@ -49,6 +50,7 @@
 						Darialover
 					</div>
 					<div class="user_pic_arrow"></div>
+
 				</div>
 				<div class="user_main_menu">
 						<div class="some_li">
@@ -107,23 +109,23 @@
 						</div>
 						<a class="second_menu_pic">Подписки</a>
 					</li>
-					<li>
+					<li class="active_li">
 						<div class="menu_popup_arrow">
 							<span class="menu_number">33</span>
 						</div>
-						<a class="third_menu_pic">Сообщения</a>
-					</li>
-					<li>
-						<div class="menu_popup_arrow">
-							<span class="menu_number">444</span>
-						</div>
-						<a class="fourth_menu_pic">Коллекция</a>
+						<a class="third_menu_pic active">Сообщения</a>
 					</li>
 					<li>
 						<div class="menu_popup_arrow">
 							<span class="menu_number">5555</span>
 						</div>
 						<a class="fifth_menu_pic">Активность</a>
+					</li>
+					<li>
+						<div class="menu_popup_arrow">
+							<span class="menu_number">444</span>
+						</div>
+						<a class="fourth_menu_pic">Коллекция</a>
 					</li>
 					<li>
 						<div class="menu_popup_arrow">
@@ -1381,7 +1383,7 @@
 								<a href="#" class="top_menu_a">Рабочие</a>
 								<span class="cifri">333</span>
 							</div>
-							<a href="#" class="top_menu_a"><img src="images/random.png" alt="random" width="22" height="23" /></a>
+							<a href="#" class="top_menu_a random_punkt"><img src="images/random.png" alt="random" width="22" height="23" /></a>
 						</div>
 						<div class="top_second_menu">
 							<a href="#" class="top_menu_a ">Все стримы</a>
@@ -2743,7 +2745,9 @@
 							</select>-->
 						</div>
 						<div class="chat_body">
+							
 							<div class="history"><span>история</span></div>
+							<div class="top_chat_shadow"></div>
 							<div class="chat_wrapper">
 								<div class="chat_message">
 									<span class="user_name red">Dolgovec:</span>
@@ -2790,7 +2794,7 @@
 										<span class="nubmer">98</span>
 									</div>
 									</div>
-                                                                        <!---PRI CLICKE NA NICK-->
+                           <!---PRI CLICKE NA NICK-->
 									<div class="click_user_popup action_user" style="display:none;">
 										<div class="click_user_popup_wrapper">
 											<div class="click_user_popup_row">
@@ -2921,16 +2925,17 @@
 									</div>
 									</div>
 								</div>
-								<div class="chat_message answer">
-									<span class="user_name red">Adolf[RA]:</span>
-									<span class="user_chat_message">Да, пришли, спасибо :) Гит, прости(</span>
+								<div class="chat_message">
+									<span class="user_name green">Dolgovec:</span>
+									<span class="user_chat_message answer"><span class="toMe">Adolf,</span>Перевел деньги</span>
 									<div class="chat_plus">
 										<div class="how_much_pluses">
 										<span class="nubmer">98</span>
 									</div>
 									</div>
-								</div>								
+								</div>
 							</div>
+							<div class="bottom_chat_shadow"></div>
 							<form action="" name="chat_message_form">
 								<input type="text" placeholder="Напиши сюда скорей!" class="chat_input" name="chat_message" />
 								<button type="submit" class="send_blue"></button>
@@ -3107,6 +3112,28 @@
 												<span class="add_answer">добавить вариант ответа</span>
 												<button type="submit" class="add_poll_submit">создать</button>
 											</form>
+										</div>
+									</div>
+		<!---POPUP USERS IN CHAT LIST-->
+									<div class="click_user_popup who_is_in_chat">
+										<div class="user_in_chat_wrapper">
+											<div class="user_in_chat_list">
+												<div class="user_in_chat_row">Dolgovec</div>
+												<div class="user_in_chat_row">Dolgovec</div>
+												<div class="user_in_chat_row">Dolgovec</div>
+												<div class="user_in_chat_row">Dolgovec</div>
+												<div class="user_in_chat_row">Dolgovec</div>
+												<div class="user_in_chat_row">Dolgovec</div>
+											</div>
+										</div>
+										<div class="user_in_chat_list_sort">
+											<div class="next_users_page "></div>
+											<div class="prev_users_page disabled"></div>
+											<div class="users_in_chat_list_how_sort">
+												<span class="active">by name</span>
+												<span>by rating</span>
+												<span>by activity</span>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -4300,7 +4327,7 @@
 				</div>
 				<div class="newstream_start">
 					<label class="registr_label">Начало стрима:</label>
-					<input type="radio" class="black_checkbox" name="newstream_autostart" value="true" id="newstream_autostart"/>
+					<input type="radio" class="black_checkbox" name="newstream_autostart" value="true" id="newstream_autostart" checked/>
 					<label for="newstream_autostart" class="for_checkbox">Авто</label>
 					<input type="radio" class="black_checkbox" name="newstream_autostart" value="false" id="newstream_customstart"/>
 					<label for="newstream_customstart" class="for_checkbox">Указать</label>
@@ -4821,6 +4848,24 @@
 				</div>
 			</div>
 		</div>	
+	</div>
+	<!---UVEDOMLENIA/PREDUPREJDENIA POPUP-->
+	<div class="sysmess_wrapper">
+		<div class="system_message_popup">
+			<a href="#" class="user_sysmessage_nick">WeLoveGamesTV</a>
+			<span class="sysmessage_text">какое-то событие\уведомление. не более 3 штук за раз</span>
+			<span class="close_sysmess_popup"></span>
+		</div>
+		<div class="system_message_popup">
+			<a href="#" class="user_sysmessage_nick">WeLoveGamesTV</a>
+			<span class="sysmessage_text">какое-то событие\уведомление. не более 3 штук за раз</span>
+			<span class="close_sysmess_popup"></span>
+		</div>
+		<div class="system_message_popup">
+			<a href="#" class="user_sysmessage_nick">WeLoveGamesTV</a>
+			<span class="sysmessage_text">какое-то событие\уведомление. не более 3 штук за раз</span>
+			<span class="close_sysmess_popup"></span>
+		</div>
 	</div>
 </div>
 </body>
