@@ -72,6 +72,8 @@ $(document).ready(function(){
 	var horizontal_block_ignorelist_width=$(".user_streams_ignore_list .favorite_stream").size()*265;//265 - outerWidth
 	$(".user_streams_ignore_list_wrapper").css('width',horizontal_block_ignorelist_width);
 	
+	var users_in_chat_list_height=$('.user_in_chat_list .user_in_chat_row').size()*22;
+	$('.user_in_chat_wrapper').css('height',users_in_chat_list_height);
 
 	//if it's streamer page, then change it's width:
 	if ($('#streams_part .left_column').hasClass('streamers_page')) {
@@ -79,7 +81,7 @@ $(document).ready(function(){
 		$('#streams_part .right_column.streamers_page').css("width",$('#streams_part').width()-850-27+"px"); //prava9 kolonka na stranichke strimera
 	}
 	if (! $('#streams_part .left_column').hasClass('streamers_page')) 
-		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-5+"px"); //shirina levoi kolonki vverhu strima
+		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-7+"px"); //shirina levoi kolonki vverhu strima
 	$('.top_streams_menu .top_right_streams_menu').css("width",$('#streams_part .top_streams_menu').width()-$('#streams_part .top_left_streams_menu').outerWidth( true )-10+"px");// shirina top menu s lini9mi
 	
 	
@@ -113,6 +115,23 @@ $(document).ready(function(){
 	
 	/*GROUP OF SLIDER'S INITIALIZATION*/
 	
+		//users in chat list
+	$(".user_in_chat_list").carouFredSel({
+        items               : 18,
+		auto:{play:false},
+		circular: false,
+		infinite: false, 
+        direction           : "up",
+		responsive	: true,
+		prev        : ".prev_users_page",
+		next        : ".next_users_page",
+        scroll : {
+            items           : 18,
+            easing          : "linear",
+            duration        : 1000,                         
+            pauseOnHover    : true
+        }                      
+    });
 	//anounses
 	$(".weekly_anounses_wrapper").carouFredSel({
         items               : 1,
@@ -181,6 +200,7 @@ $(document).ready(function(){
             pauseOnHover    : true
         }                   
     });
+
 	
 	/*RESIZE MONITOR WIDTH*/
 	
@@ -193,7 +213,7 @@ $(document).ready(function(){
 		$('#streams_part .right_column.streamers_page').css("width",$('#streams_part').width()-850-27+"px"); //prava9 kolonka na stranichke strimera
 	}
 	if (! $('#streams_part .left_column').hasClass('streamers_page')) 
-		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-5+"px"); //shirina levoi kolonki vverhu strima
+		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-7+"px"); //shirina levoi kolonki vverhu strima
 	$('.top_streams_menu .top_right_streams_menu').css("width",$('#streams_part .top_streams_menu').width()-$('#streams_part .top_left_streams_menu').outerWidth( true )-10+"px");// shirina top menu s lini9mi
 	
 	
@@ -267,8 +287,8 @@ $(document).ready(function(){
     });
 	});
 	
-	
-	
+	/*HIDE AFTER INITIALIZATION POPUPS*/
+	$('.who_is_in_chat').hide();
 	/*GROUP ONCLICK FINCTIONS*/
 	
 	//toggle search in rooms
@@ -292,11 +312,20 @@ $(document).ready(function(){
 	//buttons under the chat 
 	$('.user_chats .chat_pic').click(function(){
 		$('.click_user_popup').hide();
-		$('.user_chats .chat_pic').removeClass('active');
+		
 		if ($(this).hasClass('active'))
 			$(this).removeClass('active');
 		else
+		{
+			if ($('.user_chats .mat_filter').hasClass('active'))
+			{
+				$('.user_chats .chat_pic').removeClass('active');
+				$('.user_chats .mat_filter').addClass('active');
+			}
+			else
+				$('.user_chats .chat_pic').removeClass('active');
 			$(this).addClass('active');
+		}
 		if ($(this).hasClass('player_popup'))
 		{
 			if ($(this).hasClass('active'))
@@ -326,10 +355,23 @@ $(document).ready(function(){
 				$('.click_user_popup.golosovalka').hide();
 		}
 	});
+	//CREATE STREAM HIDE INPUT
+	$('#newstream_customstart').on('ifChecked', function(event){
+		$('.registr_input.custom_time').show();
+	});
+	$('#newstream_autostart').on('ifChecked', function(event){
+		$('.registr_input.custom_time').hide();
+	});
 	//button and the room chat
 	$('.room_smiles_block .chat_pic').click(function(){
 		$('.click_user_popup').hide();
-		$('.room_smiles_block .chat_pic').removeClass('active');
+		if ($('.room_smiles_block .mat_filter').hasClass('active'))
+			{
+				$('.room_smiles_block .chat_pic').removeClass('active');
+				$('.room_smiles_block .mat_filter').addClass('active');
+			}
+		else 
+			$('.room_smiles_block .chat_pic').removeClass('active');
 		if ($(this).hasClass('active'))
 			$(this).removeClass('active');
 		else
@@ -599,14 +641,29 @@ $(document).ready(function(){
 	});
 	//adding active class when we click on menu
 	
+	//popup s valutoy
+	$('.li_second').click(function(){
+		$('.hide_popup').hide();
+
+		$('.valute_popup').show();
+		if ($(this).hasClass('active')) {
+			$(this).removeClass('active');
+			$('.valute_popup').hide();
+		} 
+		else {
+			$('.user_main_menu .some_li').find('div').removeClass('active');
+			$(this).addClass('active');
+			$('.valute_popup').show();
+		}
+	});
 	//popup search, popup options
 	$('.user_main_menu .li_first').click(function(){
 		$('.hide_popup').hide();
-		$('.user_main_menu .some_li').find('div').removeClass('active');
 		if ($(this).hasClass('active')) {
 			$(this).removeClass('active');
 			$('.search_popup').hide();
 		} else {
+			$('.user_main_menu .some_li').find('div').removeClass('active');
 			$(this).addClass('active');
 			$('.search_popup').show();
 		}
@@ -614,12 +671,12 @@ $(document).ready(function(){
 	//option popup
 	$('.user_main_menu .li_fourth').click(function(){
 		$('.hide_popup').hide();
-		$('.user_main_menu .some_li').find('div').removeClass('active');
 		if ($(this).hasClass('active')) {
 			$(this).removeClass('active');
 			$('.options_popup').hide();
 			
 		} else {
+			$('.user_main_menu .some_li').find('div').removeClass('active');
 			$(this).addClass('active');
 			$('.options_popup').show();
 		}
@@ -627,12 +684,12 @@ $(document).ready(function(){
 	//create stream popup
 	$('.user_main_menu .li_third').click(function(){
 		$('.hide_popup').hide();
-		$('.user_main_menu .some_li').find('div').removeClass('active');
 		if ($(this).hasClass('active')) {
 			$(this).removeClass('active');
 			$('.create_stream_popup').hide();
 			
 		} else {
+			$('.user_main_menu .some_li').find('div').removeClass('active');
 			$(this).addClass('active');
 			$('.create_stream_popup').show();
 		}
@@ -705,20 +762,7 @@ $(document).ready(function(){
 	$('.forgot_password_popup .close_btn').click(function(){
 		$('.forgot_password_popup').hide();
 	});
-        //popup s valutoy
-	$('.li_second').click(function(){
-		$('.hide_popup').hide();
-		$('.user_main_menu .some_li').find('div').removeClass('active');
-		$('.valute_popup').show();
-		if ($(this).hasClass('active')) {
-			$(this).removeClass('active');
-			$('.valute_popup').hide();
-		} 
-		else {
-			$(this).addClass('active');
-			$('.valute_popup').show();
-		}
-	});
+
 	// my work
         $('.hide_popup').hide();
 		$('.add_cash_button').click(function(){
@@ -770,7 +814,9 @@ $(document).ready(function(){
 	});
 	
 
-		/*GROUP OF CLICKS 2*/
+	/*GROUP OF CLICKS 2*/
+	
+	
 		$('.search_image_holder').click(function(){
 			$('.content_search_input').toggle(300);
 		});
@@ -783,7 +829,31 @@ $(document).ready(function(){
 				$(this).parent().find('.click_user_popup.action_user').removeClass('bottom');
 			$(this).parent().find('.click_user_popup.action_user').show();
 		});   
-		
+		//close sysmessage
+		$('.close_sysmess_popup').click(function(){
+			$(this).parent().fadeOut(500); //maybe we can del this code instead of hidding?
+		})
+		//popup users in chat
+		$('.people_in_this_chat .text span').click(function(){
+			if ($('.user_chats .mat_filter').hasClass('active'))
+				{
+					$('.user_chats .chat_pic').removeClass('active');
+					$('.mat_filter').addClass('active');
+				}
+			else 
+				$('.user_chats .chat_pic').removeClass('active');
+			if ( $('.who_is_in_chat').is(':visible'))
+				$('.click_user_popup').hide();
+			else
+			{
+				$('.click_user_popup').hide();
+				$('.who_is_in_chat').show();
+			}
+		});
+		$('.users_in_chat_list_how_sort span').click(function(){
+			$('.users_in_chat_list_how_sort span').removeClass('active');
+			$(this).addClass('active');
+		});
 /*ROOM RIGHT BLOCK*/
 	$('.room_right_block_images .poll').click(function(){
 		$('.room_right_block_images .chat_pic').removeClass('active');
@@ -936,7 +1006,21 @@ $(document).ready(function(){
 	$('.chat_wrapper').each(function(){
 		$(this).mCustomScrollbar({
 			axis:"y",
-			theme:"light"
+			theme:"light",
+			callbacks:{
+			onScrollStart:function(){
+				$(".top_chat_shadow").show();
+				$(".bottom_chat_shadow").show();
+			}, 
+			onTotalScroll:function(){
+				$(".top_chat_shadow").show();
+				$(".bottom_chat_shadow").hide();
+			},
+			onTotalScrollBack:function(){
+				$(".top_chat_shadow").hide();
+				$(".bottom_chat_shadow").show()
+			}
+		}
 		});
 	});
     $('.selectBox-menuShowing-bottom').mCustomScrollbar({
@@ -1156,6 +1240,12 @@ $(document).ready(function(){
 		},
 		function() {
 		$(this).parent().next('.checkbox_hint').hide();
+	});
+	$('.icheckbox_dark_blue').on('ifChecked', function(event){
+		$(this).parent().addClass('active');
+	});
+	$('.icheckbox_dark_blue').on('ifUnchecked', function(event){
+		$(this).parent().removeClass('active');
 	});
 	/*GROUP OF FILLING CIRCLE PLUGIN*/
 	
