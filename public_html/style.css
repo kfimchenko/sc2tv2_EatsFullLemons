@@ -2134,7 +2134,7 @@ color:#fff;
 }
 .click_user_popup.option_popup{
 bottom:22px;
-left:60px;
+left:-6px; /*60px*/
 }
 .click_user_popup.player{
 bottom:22px;
