@@ -825,8 +825,11 @@ line-height:40px;
 }
 .top_left_menu_column_text .text.active{
 color:#fff;
-font-size:24px;
+font-size:14px;
 line-height:38px;
+}
+.top_left_menu_column_text .text.first {
+    font-size: 24px;
 }
 .top_left_menu_column_numbers{
 float:left;
@@ -1245,7 +1248,7 @@ right:0px;
 	position:relative;
 	width:390px;
 	margin-bottom:8px;
-	margin-right:4%;
+	margin-right:15%;
 	margin-top:12px;
 	padding:8px 10px 7px;
 }
@@ -2184,7 +2187,7 @@ color:#fff;
 }
 .click_user_popup.option_popup{
 bottom:22px;
-left:-6px; /*60px*/
+left:60px;
 }
 .click_user_popup.player{
 bottom:22px;
@@ -5848,6 +5851,47 @@ position:absolute;
 top:6px;
 right:6px;
 cursor:pointer;
+}
+/*HOW MUCH DOBATE POPUP*/
+.how_much_donate_popup{
+    display: none;
+    left: 38%;
+    position: absolute;
+    top: 250px;
+    z-index: 20;
+}
+.how_much_donate_popup .forgot_wrapper{
+width:286px;
+border:1px solid #ababab;
+height:193px;
+}
+.how_much_donate_popup .close_btn{
+	left: 260px;
+    position: absolute;
+    top: 69px;
+}
+.how_much_donate_popup .top_tab_registr{
+padding-left: 29px;
+width: 197px;
+  border-top-right-radius: 6px;
+}
+
+#how_much_donate > label {
+    color: #545454;
+    float: left;
+    font-size: 16px;
+    margin-left: 47px;
+    margin-top: 10px;
+}
+.how_much_donate_input {
+width:115px;
+}
+.how_much_donate_popup .submit_button_forgot_password{
+  width: 228px;
+  margin-left: 32px;
+  border-right:3px solid #bcbcbc;
+   border-bottom-right-radius: 6px;
+   border-top-right-radius: 6px;
 }
 /*hack for chrome*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
