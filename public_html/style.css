@@ -1,10 +1,14 @@
+html {
+    min-width: 1232px;
+    width: 100%;
+}
 body,html{
 margin:0;
 padding:0;
 font-family:Tahome,Arial,sans-serif;
 }
 body{
-min-width:1200px;
+min-width:1232px;
 width:100%;
 }
 img{
@@ -131,6 +135,18 @@ border-right:1px solid #225fa8;
 background:url("images/user_pic_bg.png") repeat-x;
 height:36px;
 position:relative;
+}
+.user_pic .mess{
+ background: none repeat scroll 0 0 #66ccff;
+    border-radius: 2px;
+    color: #000;
+    display: block;
+    float: right;
+    font-size: 12px;
+    left: 25px;
+    padding: 0 2px;
+    position: absolute;
+    z-index: 4;
 }
 .user_avatar{
 border:1px solid #286fc3;
@@ -342,7 +358,7 @@ background:url("images/seven_menu_pic.png") no-repeat left 2px;
 background:url("images/seven_menu_pic_active.png") no-repeat 12px 2px;
 }
 .menu_popup_arrow{
-background: url("images/pic2.png") no-repeat scroll 4px 11px rgba(0, 0, 0, 0);
+background: url("images/pic2.png") no-repeat scroll 4px 17px rgba(0, 0, 0, 0);
     padding-bottom: 10px;
     position: absolute;
     top: -21px;
@@ -668,6 +684,9 @@ width:45%;
 .submenu_li:hover{
 color:#fff;
 }
+.submenu.streams {
+    margin-left: 20px;
+}
 .submenu_li.active{
 font-size:16px;
 color:#fff;
@@ -757,12 +776,12 @@ background: url("images/top_shadow.png") repeat-x scroll left top rgba(0, 0, 0, 
 }
 /*MAIN PART*/
 #workarea{
-width:97.3%;
+width:98.7%;
 float:left;
 color:white;
 background:url("images/main_bg.jpg") no-repeat top center #09111c;
 min-width:1200px;
-padding-left: 1.3%;
+padding-left: 1.1%;
 }
 #streams_part{
 float:left;
@@ -806,8 +825,11 @@ line-height:40px;
 }
 .top_left_menu_column_text .text.active{
 color:#fff;
-font-size:24px;
+font-size:14px;
 line-height:38px;
+}
+.top_left_menu_column_text .text.first {
+    font-size: 24px;
 }
 .top_left_menu_column_numbers{
 float:left;
@@ -890,7 +912,9 @@ font-size:16px;
 background:#0390d9;
 color:#000;
 }
-
+.top_menu_a.random_punkt {
+    float: right;
+}
 /*USER STREAM PAGE*/
 .user_stream_page{
 float:left;
@@ -1371,7 +1395,7 @@ margin-top:4px;
 	background:url("images/podloshka_dark_blue.png") repeat;
 	position:absolute;
 	z-index:3;
-	bottom:7px;
+	bottom:11px;
 
 }
 .normal_one.stream .main_stream_info {
@@ -1658,7 +1682,7 @@ background:url("images/active_arrow_top.png") no-repeat;
 z-index:5;
 cursor:pointer;
 }
-.next_rating_page.disabled, .next_room_page.disabled{
+.next_rating_page.disabled, .next_room_page.disabled, .next_users_page.disabled{
 opacity:0.6;
 }
 .prev_rating_page, .prev_room_page{
@@ -1671,7 +1695,7 @@ cursor:pointer;
 background:url("images/disable_arrow_bottom.png") no-repeat;
 z-index:5;
 }
-.prev_rating_page.disabled, .prev_room_page.disabled{
+.prev_rating_page.disabled, .prev_room_page.disabled,.prev_users_page.disabled{
 opacity:0.6;
 }
 .rating_text{
@@ -1902,8 +1926,9 @@ padding:10px 10px 5px 0;
     float: left;
     margin-left: -10px;
     width: 100%;
-	background:url("images/chat_bg.png") repeat-x rgba(0,0,0,0.6);
+	background:rgba(0,0,0,0.6);
 	height:507px;
+	position:relative;
 }
 .chat_body  .history{
 float:left;
@@ -1923,6 +1948,28 @@ cursor:pointer;
     float: left;
     width: 100%;
 	height:373px;
+}
+.top_chat_shadow{
+background:url("images/chat_bg.png") repeat-x;
+position:absolute;
+top:0px;
+left:0px;
+z-index:2;
+width:100%;
+height:41px;
+display:none;
+}
+.bottom_chat_shadow{
+/*background:url("images/chat_bg.png") repeat-x;*/
+position:absolute;
+bottom:72px;
+left:0px;
+z-index:2;
+width:100%;
+height:41px;
+}
+.chat_wrapper .mCSB_scrollTools {
+    z-index: 3;
 }
 .chat_message {
     border-bottom: 1px solid #006699;
@@ -1966,6 +2013,11 @@ padding-right:35px;
 padding-left:13px;
  padding-top: 0px;
  line-height:13px;
+}
+.user_chat_message.answer{
+margin-bottom:0px;
+float:none;
+color:#ffff99;
 }
 .click_user_popup{
 position:absolute;
@@ -2131,10 +2183,11 @@ color:#fff;
 .people_in_this_chat .text > span {
     color: #3399ff;
 	text-decoration:underline;
+	cursor:pointer;
 }
 .click_user_popup.option_popup{
 bottom:22px;
-left:-6px; /*60px*/
+left:60px;
 }
 .click_user_popup.player{
 bottom:22px;
@@ -2271,7 +2324,72 @@ margin-bottom:3px;
 	border:0 none;
 	margin-bottom:9px;
 }
+/*USERS IN THAT LIST*/
+.click_user_popup.who_is_in_chat{
+bottom:27px;
+left:5px;
+width:276px;
+background: url("images/chat_arrow.png") no-repeat 235px bottom;
+display:block;
+}
+.user_in_chat_wrapper{
+width:276px;
+background:#336699;
+float:left;
+position:relative;
+}
+.user_in_chat_list_sort {
+    background: none repeat scroll 0 0 #336699;
+    float: left;
+    width: 100%;
+	
+}
+.next_users_page{
+width:16px;
+height:9px;
+cursor:pointer;
+background: url("images/disable_arrow_bottom.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+float:left;
+margin-top:6px;
+margin-left:11px;
+margin-right:7px;
+}
+.prev_users_page{
+width:16px;
+height:9px;
+cursor:pointer;
+background: url("images/active_arrow_top.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+float:left;
+margin-top:6px;
 
+}
+.user_in_chat_row{
+float:left;
+width:270px;
+padding:4px 0px 1px 6px;
+border-bottom:1px solid #003366;
+font-size:12px;
+color:#fff;
+}
+.user_in_chat_row:hover{
+background:#003366;
+}
+
+.users_in_chat_list_how_sort {
+    float: right;
+    font-size: 12px;
+    margin-top: 3px;
+	color:#6699cc;
+	margin-right:9px;
+	padding-bottom:6px;
+}
+.users_in_chat_list_how_sort > span{
+cursor:pointer;
+margin-right:7px;
+}
+.users_in_chat_list_how_sort .active{
+color:#fff;
+}
 /*ROOMS LIST*/
 .all_rooms {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.6);
@@ -2766,7 +2884,7 @@ float:none;
     padding-bottom: 7px;
     padding-top: 12px;
     position: relative;
-    width: 275px;
+    width: 268px;
 }
 .room_smiles_block  .click_user_popup.smaili {
     background-position: 28px bottom;
@@ -2793,7 +2911,7 @@ left:16px;
 /*ROOM LIST USERS*/
 .room_list_wrapper .user{
 float:left;
-width:100%;
+width:260px;
 font-size:12px;
 color:#fff;
 padding-left:13px;
@@ -3030,12 +3148,16 @@ margin-left:1px;
 background:#0099cc;
 color:#000;
 }
+.stream_row.active{
+background:#0099cc;
+color:#fff;
+}
+
 .stream_row:not(:first-child){
 border-top:1px solid #000;
 }
 .stream_row .stream_name{
 font-size:14px;
-color:#stream_name;
 float:left;
 margin-left:12px;
 padding-top:5px;
@@ -3065,6 +3187,9 @@ margin:0px;
     background: url("images/unchecked_dark_blue_checkbox.png") no-repeat;
     border: none;
     cursor: pointer;
+}
+.stream_row.active .icheckbox_dark_blue{
+display:block !important;
 }
 .checkbox_hint{
 position:absolute;
@@ -4629,9 +4754,15 @@ padding:8px;
 	  margin-left: 14px;
     margin-top: 4px;
     width: 55px;
+	display:none;
 }
 .create_stream_wrapper  .registr_label {
 width:143px;
+}
+.newstream_start {
+    float: left;
+    height: 30px;
+    margin-bottom: 13px;
 }
 .create_stream_wrapper  .left_block{
 float:left;
@@ -4641,7 +4772,7 @@ width:450px;
 .create_stream_wrapper .captcha_hint {
 width: 376px;
 text-align:right;
-margin-top:13px;
+margin-top:0px;
 margin-bottom:28px;
 }
 .create_stream_wrapper .switch {
@@ -5176,7 +5307,7 @@ padding:1px 7px 1px 5px;
     font-size: 28px;
     left: 11px;
     position: relative;
-    top: -41px;
+    top: -46px;
 	display:block;
 	width:43px;
 	text-align: center;
@@ -5373,7 +5504,7 @@ background: url("images/top_shadow.png") repeat-x scroll left top rgba(0, 0, 0, 
     margin-right: 34px;
 }
 .profile_lvl .lvl{
-top:-76px;
+top:-80px;
 }
 .lvl_name {
     color: #fff;
@@ -5483,6 +5614,10 @@ display:none;
 position:absolute;
 top:34px;
 right:17px;
+z-index:6;
+}
+.search_popup{
+right:11px;
 }
 .arrow_top {
 background:url("images/top_gray_arrow.png") no-repeat;
@@ -5671,7 +5806,93 @@ padding-bottom:16px;
 .switch-blue .switch-selection {
   background: #0099ff;
 }
+/*UVEDOMLENIA/PREDUPREJDENIA POPUP*/
+.sysmess_wrapper{
+position:absolute;
+z-index:7;
+right:6px;
+top:43px;
+}
+.system_message_popup{
+float:left;
+border-radius:4px;
+border:1px solid #3477e5;
+background:#0a4b9b;
+width:177px;
+margin-bottom:7px;
+position:relative;
+clear:both;
+}
+.user_sysmessage_nick{
+color:#d3ebff;
+font-size:16px;
+padding:5px 9px 0px;
+float:left;
+display:block;
+text-overflow:ellipsis;
+overflow:hidden;
+width:138px;
+}
+.sysmessage_text{
+color:#96cbf8;
+padding-left:9px;
+width:145px;
+display:block;
+float:left;
+font-size:12px;
+padding-bottom:6px;
+}
+.close_sysmess_popup{
+background:url("images/close_sysmess.png") no-repeat;
+display:block;
+width:8px;
+height:8px;
+position:absolute;
+top:6px;
+right:6px;
+cursor:pointer;
+}
+/*HOW MUCH DOBATE POPUP*/
+.how_much_donate_popup{
+    display: none;
+    left: 38%;
+    position: absolute;
+    top: 250px;
+    z-index: 20;
+}
+.how_much_donate_popup .forgot_wrapper{
+width:286px;
+border:1px solid #ababab;
+height:193px;
+}
+.how_much_donate_popup .close_btn{
+	left: 260px;
+    position: absolute;
+    top: 69px;
+}
+.how_much_donate_popup .top_tab_registr{
+padding-left: 29px;
+width: 197px;
+  border-top-right-radius: 6px;
+}
 
+#how_much_donate > label {
+    color: #545454;
+    float: left;
+    font-size: 16px;
+    margin-left: 47px;
+    margin-top: 10px;
+}
+.how_much_donate_input {
+width:115px;
+}
+.how_much_donate_popup .submit_button_forgot_password{
+  width: 228px;
+  margin-left: 32px;
+  border-right:3px solid #bcbcbc;
+   border-bottom-right-radius: 6px;
+   border-top-right-radius: 6px;
+}
 /*hack for chrome*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 .forgot_password_popup .top_tab_registr{
