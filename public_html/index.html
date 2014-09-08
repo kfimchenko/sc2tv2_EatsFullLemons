@@ -107,7 +107,7 @@
 						<div class="menu_popup_arrow">
 							<span class="menu_number">22</span>
 						</div>
-						<a class="second_menu_pic">Подписки</a>
+						<a class="second_menu_pic">Подписки и игноры</a>
 					</li>
 					<li class="active_li">
 						<div class="menu_popup_arrow">
@@ -1402,7 +1402,7 @@
 				</div>
 				
 				<!---MAIN STREAMS clean that "disaply:none" style, i added it to make 2-3 blocks in 1 wrapper, like it'll be in site-->
-				<div class="all_streams"  >
+				<div class="all_streams" style="display:none;" >
 					<div class="top_stream_wrapper_border1"></div>
 					<div class="top_stream_wrapper_border2"></div>
 					<div class="top_shadow"></div>
@@ -1742,9 +1742,9 @@
 											22
 										</span>
 										<div class="rating_block">
-											<span class="text">денежный</span> 
+											<span class="text ">денежный</span> 
 											<div class="rating_block_wrapper">
-												<span class="plus_money_rating">+</span>
+												<span class="plus_money_rating support_add">+</span>
 												<span class="rating_number">2345</span>
 											</div>
 										</div>
@@ -1799,7 +1799,7 @@
 				</div>
 			
 				<!---OPEN ROOM PAGE-->
-				<div class="open_room" style="display:none;"> 
+				<div class="open_room" > 
 					<div class="top_stream_wrapper_border1"></div>
 					<div class="top_stream_wrapper_border2"></div>
 					<div class="top_room_header">
@@ -1849,7 +1849,7 @@
 										<div class="rating_block">
 											<span class="text">денежный</span> 
 											<div class="rating_block_wrapper">
-												<span class="plus_money_rating">+</span>
+												<span class="plus_money_rating support_add">+</span>
 												<span class="rating_number">2345</span>
 											</div>
 										</div>
@@ -4792,8 +4792,8 @@
 	
 	<!--SEARCH POPUP-->
 	<div class="search_popup hide_popup">
-		 <div class="arrow_top"></div>
-		<div class="search_wrapper">                    
+		<div class="arrow_top"></div>
+		<div class="search_wrapper">
 			<div class="input_search">
 				<input type="text" class="search_input" name="search_input_popup" placeholder="поиск...">
 			</div>
@@ -4866,6 +4866,20 @@
 			<span class="sysmessage_text">какое-то событие\уведомление. не более 3 штук за раз</span>
 			<span class="close_sysmess_popup"></span>
 		</div>
+	</div>
+	<!---HOW MUCH DONATE POPUP-->
+	<div class="how_much_donate_popup">
+		<div class="top_tab_registr">
+			<span>Сумма саппорта</span>
+		</div>
+		<div class="forgot_wrapper">
+			<form action="" name="how_much_donate" id="how_much_donate">
+				<label>Сумма: </label>
+				<input type="text" class="forget_pass_input how_much_donate_input" name="donate_summ"/>
+				<button type="submit" class="submit_button_forgot_password">Отправить</button>
+			</form>
+		</div>
+		<span class="close_btn"></span>
 	</div>
 </div>
 </body>
