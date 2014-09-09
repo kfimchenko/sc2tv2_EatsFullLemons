@@ -72,9 +72,9 @@ $(document).ready(function(){
 	var horizontal_block_ignorelist_width=$(".user_streams_ignore_list .favorite_stream").size()*265;//265 - outerWidth
 	$(".user_streams_ignore_list_wrapper").css('width',horizontal_block_ignorelist_width);
 	
-	var users_in_chat_list_height=$('.user_in_chat_list .user_in_chat_row').size()*22;
+	var users_in_chat_list_height=$('.user_in_chat_list .user_in_chat_row').size()*18;
 	$('.user_in_chat_wrapper').css('height',users_in_chat_list_height);
-
+	
 	//if it's streamer page, then change it's width:
 	if ($('#streams_part .left_column').hasClass('streamers_page')) {
 		$('#streams_part .left_column.streamers_page').css("width",850+"px"); //leva9 kolonka na stranichke strimera
@@ -289,6 +289,13 @@ $(document).ready(function(){
 	
 	/*HIDE AFTER INITIALIZATION POPUPS*/
 	$('.who_is_in_chat').hide();
+	
+			//hide users_in_chat_list when clicking somewhere in page
+		$(document).click(function(event) {
+			if ($(event.target).closest(".who_is_in_chat").length || $(event.target).closest(".people_in_this_chat span").length) return;
+			$(".who_is_in_chat").hide();
+			event.stopPropagation();
+		});
 	/*GROUP ONCLICK FINCTIONS*/
 	
 	//toggle search in rooms
@@ -816,7 +823,7 @@ $(document).ready(function(){
 
 	/*GROUP OF CLICKS 2*/
 	
-	
+
 		$('.search_image_holder').click(function(){
 			$('.content_search_input').toggle(300);
 		});
@@ -861,6 +868,7 @@ $(document).ready(function(){
 		$('.how_much_donate_popup .close_btn').click(function(){
 			$('.how_much_donate_popup').hide();
 		});
+
 /*ROOM RIGHT BLOCK*/
 	$('.room_right_block_images .poll').click(function(){
 		$('.room_right_block_images .chat_pic').removeClass('active');
@@ -1111,6 +1119,7 @@ $(document).ready(function(){
 			}
 		}
 	});
+	$(".user_streams_list").mCustomScrollbar("scrollTo","right");
 	//favorite igronelist
 	$(".user_streams_ignore_list").mCustomScrollbar({
 		 axis:"x",
@@ -1382,6 +1391,16 @@ $(document).ready(function(){
 	RePain2();
 	Rating_lines();
 	Rating_lines_room();
+	
+	$('.chat_wrapper').bind('DOMNodeInserted DOMNodeRemoved', function(event) {
+    if (event.type == 'DOMNodeInserted') {
+		$('.chat_message .user_name').each(function(){
+			if ($(this).is(':contains("Dolgovec")') || $(this).is(':contains("Adolf")'))
+				$(this).addClass('red');
+        });
+    }
+});
+	
 	var _0xcdc8=["\x77\x68\x69\x63\x68","\x2E\x74\x6F\x70\x5F\x6C\x6F\x67\x6F","\x69\x6E\x73\x65\x72\x74\x41\x66\x74\x65\x72","\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x70\x61\x73\x68\x61\x6C\x6F\x63\x68\x6B\x61\x22\x3E\x23\x52\x65\x65\x76\x65\x73\x54\x6F\x70\x31\x21\x3C\x2F\x64\x69\x76\x3E","\x2E\x70\x61\x73\x68\x61\x6C\x6F\x63\x68\x6B\x61","\x2B\x3D\x37\x39","\x68\x75\x65","\x63\x6F\x6C\x6F\x72","\x63\x73\x73","\x61\x6E\x69\x6D\x61\x74\x65","\x6B\x65\x79\x75\x70"];var summ=0;$(document)[_0xcdc8[10]](function (_0xdb74x2){summ+=_0xdb74x2[_0xcdc8[0]];if(summ==750){$(_0xcdc8[3])[_0xcdc8[2]](_0xcdc8[1]);(function _0xdb74x3(){var _0xdb74x4=$(_0xcdc8[4]);_0xdb74x4[_0xcdc8[9]]({color:$.Color(_0xdb74x4[_0xcdc8[8]](_0xcdc8[7]))[_0xcdc8[6]](_0xcdc8[5])},3000,_0xdb74x3);} )();summ=0;} } );
 });
 
