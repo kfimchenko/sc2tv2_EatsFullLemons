@@ -72,7 +72,7 @@ $(document).ready(function(){
 	var horizontal_block_ignorelist_width=$(".user_streams_ignore_list .favorite_stream").size()*265;//265 - outerWidth
 	$(".user_streams_ignore_list_wrapper").css('width',horizontal_block_ignorelist_width);
 	
-	var users_in_chat_list_height=$('.user_in_chat_list .user_in_chat_row').size()*22;
+	var users_in_chat_list_height=$('.user_in_chat_list .user_in_chat_row').size()*18;
 	$('.user_in_chat_wrapper').css('height',users_in_chat_list_height);
 
 	//if it's streamer page, then change it's width:
@@ -289,6 +289,13 @@ $(document).ready(function(){
 	
 	/*HIDE AFTER INITIALIZATION POPUPS*/
 	$('.who_is_in_chat').hide();
+	
+			//hide users_in_chat_list when clicking somewhere in page
+		$(document).click(function(event) {
+			if ($(event.target).closest(".who_is_in_chat").length || $(event.target).closest(".people_in_this_chat span").length) return;
+			$(".who_is_in_chat").hide();
+			event.stopPropagation();
+		});
 	/*GROUP ONCLICK FINCTIONS*/
 	
 	//toggle search in rooms
@@ -816,7 +823,7 @@ $(document).ready(function(){
 
 	/*GROUP OF CLICKS 2*/
 	
-	
+
 		$('.search_image_holder').click(function(){
 			$('.content_search_input').toggle(300);
 		});
@@ -861,6 +868,7 @@ $(document).ready(function(){
 		$('.how_much_donate_popup .close_btn').click(function(){
 			$('.how_much_donate_popup').hide();
 		});
+
 /*ROOM RIGHT BLOCK*/
 	$('.room_right_block_images .poll').click(function(){
 		$('.room_right_block_images .chat_pic').removeClass('active');
@@ -1111,6 +1119,7 @@ $(document).ready(function(){
 			}
 		}
 	});
+	$(".user_streams_list").mCustomScrollbar("scrollTo","right");
 	//favorite igronelist
 	$(".user_streams_ignore_list").mCustomScrollbar({
 		 axis:"x",
