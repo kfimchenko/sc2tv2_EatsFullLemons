@@ -1947,7 +1947,7 @@ cursor:pointer;
 .chat_wrapper {
     float: left;
     width: 100%;
-	height:373px;
+	height:435px;
 }
 .top_chat_shadow{
 background:url("images/chat_bg.png") repeat-x;
@@ -5856,7 +5856,7 @@ cursor:pointer;
 .how_much_donate_popup{
     display: none;
     left: 38%;
-    position: absolute;
+    position: fixed;
     top: 250px;
     z-index: 20;
 }
