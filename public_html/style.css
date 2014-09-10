@@ -1461,6 +1461,8 @@ margin-top:4px;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
+    word-break: break-all;
+  word-wrap: break-word;
 }
 .big_one .stream_info .streamer_name{
 color:#0491db;
@@ -1576,6 +1578,8 @@ margin-left:3px;
 }
 .calendar_text{
 float:left;
+word-wrap: break-word;
+word-break: break-all;
 display:block;
 width:100%;
 text-align:center;
@@ -2013,6 +2017,8 @@ padding-right:35px;
 padding-left:13px;
  padding-top: 0px;
  line-height:13px;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 .user_chat_message.answer{
 margin-bottom:0px;
@@ -3465,6 +3471,8 @@ text-indent:35px;
 height:56px;
 overflow:hidden;
 width:100%;
+word-break: break-all;
+  word-wrap: break-word;
 }
 .big_one .authors{
 float:left;
@@ -3550,6 +3558,8 @@ text-indent:35px;
 height:56px;
 overflow:hidden;
 width:100%;
+word-break: break-all;
+  word-wrap: break-word;
 }
 .normal_one .authors{
 float:left;
@@ -3894,6 +3904,8 @@ float:left;
 line-height:20px;
 padding:37px 20px 0;
 text-indent:35px;
+word-break: break-all;
+  word-wrap: break-word;
 }
 .share_bar{
 float:left;
