@@ -951,6 +951,7 @@ float:left;
 display:block;
 color:#fff;
 font-size:22px;
+word-wrap: break-word;
 }
 .stream_game_name {
     clear: both;
@@ -959,6 +960,7 @@ font-size:22px;
     font-size: 14px;
 	padding-top:5px;
 	margin-bottom:6px;
+	word-wrap: break-word;
 }
 .streamer_name{
 display:block;
@@ -1461,8 +1463,6 @@ margin-top:4px;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
-    word-break: break-all;
-  word-wrap: break-word;
 }
 .big_one .stream_info .streamer_name{
 color:#0491db;
@@ -1578,8 +1578,6 @@ margin-left:3px;
 }
 .calendar_text{
 float:left;
-word-wrap: break-word;
-word-break: break-all;
 display:block;
 width:100%;
 text-align:center;
@@ -1765,6 +1763,7 @@ color:#66ccff;
 }
 .chat_robot_msg .text{
 color:#fff;
+word-wrap: break-word;
 }
 .chat_robot_msg .text a{
 color:#66ccff;
@@ -1951,7 +1950,7 @@ cursor:pointer;
 .chat_wrapper {
     float: left;
     width: 100%;
-	height:430px;/*373px;*/
+	height:435px;
 }
 .top_chat_shadow{
 background:url("images/chat_bg.png") repeat-x;
@@ -2017,8 +2016,7 @@ padding-right:35px;
 padding-left:13px;
  padding-top: 0px;
  line-height:13px;
-  word-break: break-all;
-  word-wrap: break-word;
+ word-wrap: break-word;
 }
 .user_chat_message.answer{
 margin-bottom:0px;
@@ -2806,6 +2804,7 @@ background:rgba(57, 102, 200, 0.45);
     line-height: 13px;
     padding-right: 20px;
 	padding-bottom:12px;
+	word-wrap: break-word;
 }
 .input_room_block{
 float:left;
@@ -2970,6 +2969,7 @@ margin-top:18px;
 .room_vote_poll .golosovalka_podpis, .room_results_poll .golosovalka_podpis{
 float:left;
 margin-bottom:4px;
+word-wrap: break-word;
 }
 .room_vote_poll  .checkboxes_wrapper{
 float:left;
@@ -3007,6 +3007,7 @@ font-size:12px;
 padding-left:10px;
 text-align:left;
 padding-top:13px;
+word-wrap: break-word;
 }
 /*RASPISANIE*/
 .raspisanie_transliacii{
@@ -3163,11 +3164,15 @@ color:#fff;
 border-top:1px solid #000;
 }
 .stream_row .stream_name{
-font-size:14px;
-float:left;
-margin-left:12px;
-padding-top:5px;
-padding-bottom:6px;
+ display: block;
+    float: left;
+    font-size: 14px;
+    margin-left: 12px;
+    overflow: hidden;
+    padding-bottom: 6px;
+    padding-top: 5px;
+    text-overflow: ellipsis;
+    width: 152px;
 }
 .stream_row .stream_name.video{
 background:url("images/video.png") no-repeat left center;
@@ -3456,6 +3461,10 @@ position:absolute;
 bottom:6px;
 font-size:24px;
 left:8px;
+word-wrap: break-word;
+ width: 384px;
+  max-height: 84px;
+    overflow: hidden;
 }
 
 .big_one .news_preview_block {
@@ -3470,9 +3479,8 @@ font-size:15px;
 text-indent:35px;
 height:56px;
 overflow:hidden;
-width:100%;
-word-break: break-all;
-  word-wrap: break-word;
+width:361px;
+word-wrap: break-word;
 }
 .big_one .authors{
 float:left;
@@ -3543,6 +3551,10 @@ position:absolute;
 bottom:3px;
 font-size:18px;
 left:8px;
+overflow:hidden;
+width:235px;
+max-height:55px;
+word-wrap: break-word;
 }
 
 .normal_one .news_preview_block {
@@ -3557,9 +3569,8 @@ font-size:15px;
 text-indent:35px;
 height:56px;
 overflow:hidden;
-width:100%;
-word-break: break-all;
-  word-wrap: break-word;
+width:232px;
+word-wrap: break-word;
 }
 .normal_one .authors{
 float:left;
@@ -3734,6 +3745,7 @@ margin-right:8px;
 .material_list_body .news_name{
 color:#3399cc;
 font-size:14px;
+word-wrap: break-word;
 display:block;
 }
 .material_list_body .news_name:first-letter{
@@ -3896,6 +3908,10 @@ z-index:3;
 	    padding-left: 20px;
 		padding-bottom:13px;
     text-indent: 0;
+word-wrap: break-word;
+width:795px;
+max-height:125px;
+overflow:hidden;
 }
 .lots_of_text{
 color:#363636;
@@ -3904,8 +3920,8 @@ float:left;
 line-height:20px;
 padding:37px 20px 0;
 text-indent:35px;
-word-break: break-all;
-  word-wrap: break-word;
+word-wrap: break-word;
+width:795px;
 }
 .share_bar{
 float:left;
@@ -3989,6 +4005,7 @@ background:#d0d5e0;
 .user_comment {
 color:#666;
 font-size:14px;
+word-wrap: break-word;
 }
 .left_float {
     float: left;
@@ -5868,7 +5885,7 @@ cursor:pointer;
 .how_much_donate_popup{
     display: none;
     left: 38%;
-    position: absolute;
+    position: fixed;
     top: 250px;
     z-index: 20;
 }
