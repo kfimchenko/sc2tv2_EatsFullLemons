@@ -336,6 +336,13 @@ $(document).ready(function(){
 		$('.selected_channel .text').text($(this).find('.chat_name').text());
 	});
 	//buttons under the chat 
+	$('.user_chats .chat_pic').hover(function(){
+		$(this).find('.chat_hint').show();
+		}, 
+		function() {
+		$(this).find('.chat_hint').hide();
+	});
+	
 	$('.user_chats .chat_pic').click(function(){
 		$('.click_user_popup').hide();
 		
