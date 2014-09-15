@@ -1,5 +1,5 @@
 html {
-    min-width: 1232px;
+    min-width: 1200px;
     width: 100%;
 }
 body,html{
@@ -8,7 +8,7 @@ padding:0;
 font-family:Tahome,Arial,sans-serif;
 }
 body{
-min-width:1232px;
+min-width:1200px;
 width:100%;
 }
 img{
@@ -780,7 +780,7 @@ width:98.7%;
 float:left;
 color:white;
 background:url("images/main_bg.jpg") no-repeat top center #09111c;
-min-width:1200px;
+min-width:1186px;
 padding-left: 1.1%;
 }
 #streams_part{
@@ -1347,6 +1347,9 @@ position:relative;
 	background:url("images/purple_filter.png") repeat;
 	left:0;
 }
+.filter:hover{
+background:none;
+}
 .stream_pic .play_button{
 	position:absolute;
 	z-index:3;
@@ -1580,7 +1583,7 @@ margin-left:3px;
 float:left;
 display:block;
 width:100%;
-text-align:center;
+text-align:left;
 color:#fff;
 font-size:12px;
 margin-top:5px;
@@ -1974,6 +1977,9 @@ height:41px;
 .chat_wrapper .mCSB_scrollTools {
     z-index: 3;
 }
+.chat_wrapper .mCSB_inside > .mCSB_container {
+    margin-right: 17px;
+}
 .chat_message {
     border-bottom: 1px solid #006699;
     float: left;
@@ -1987,7 +1993,7 @@ background:#003366;
 }
 .chat_message  .user_name{
 color:#66ccff;
-font-size:14px;
+font-size:13px;
 padding-left:13px;
 padding-right:2px;
 line-height:13px;
@@ -2010,7 +2016,7 @@ color:#52d197;
 }
 .user_chat_message{
 display:block;
-font-size:12px;
+font-size:13px;
 color:#fff;
 padding-right:35px;
 padding-left:13px;
@@ -2161,7 +2167,6 @@ background:#062045;
 left:-20px;
 }
 .chat_pic.robot .chat_hint{
-display:block;
 width:98px;
 left:-39px;
 padding-bottom:4px;
@@ -2185,7 +2190,7 @@ background:url("images/mat_img_active.png") no-repeat center center;
 .chat_pic.robot{
 background:url("images/robot_img.png") no-repeat center center;
 }
-.chat_pic.robot.active, .robot:hover{
+.chat_pic.robot.active, .chat_pic.robot:hover{
 background:url("images/robot_img_active.png") no-repeat center center;
 }
 .player_popup{
@@ -5997,6 +6002,7 @@ width:206px;
 .error_text span{
 font-size:11px;
 color:#fff;
+word-wrap:break-word;
 }
 /*RESET PASSWORD POPUP*/
 .change_pwd_popup {
