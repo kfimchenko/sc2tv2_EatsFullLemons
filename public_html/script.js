@@ -72,8 +72,6 @@ $(document).ready(function(){
 	var horizontal_block_ignorelist_width=$(".user_streams_ignore_list .favorite_stream").size()*265;//265 - outerWidth
 	$(".user_streams_ignore_list_wrapper").css('width',horizontal_block_ignorelist_width);
 	
-	var users_in_chat_list_height=$('.user_in_chat_list .user_in_chat_row').size()*22;
-	$('.user_in_chat_wrapper').css('height',users_in_chat_list_height);
 
 	//if it's streamer page, then change it's width:
 	if ($('#streams_part .left_column').hasClass('streamers_page')) {
@@ -81,7 +79,7 @@ $(document).ready(function(){
 		$('#streams_part .right_column.streamers_page').css("width",$('#streams_part').width()-850-27+"px"); //prava9 kolonka na stranichke strimera
 	}
 	if (! $('#streams_part .left_column').hasClass('streamers_page')) 
-		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-7+"px"); //shirina levoi kolonki vverhu strima
+		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-10+"px"); //shirina levoi kolonki vverhu strima
 	$('.top_streams_menu .top_right_streams_menu').css("width",$('#streams_part .top_streams_menu').width()-$('#streams_part .top_left_streams_menu').outerWidth( true )-10+"px");// shirina top menu s lini9mi
 	
 	
@@ -115,23 +113,6 @@ $(document).ready(function(){
 	
 	/*GROUP OF SLIDER'S INITIALIZATION*/
 	
-		//users in chat list
-	$(".user_in_chat_list").carouFredSel({
-        items               : 18,
-		auto:{play:false},
-		circular: false,
-		infinite: false, 
-        direction           : "up",
-		responsive	: true,
-		prev        : ".prev_users_page",
-		next        : ".next_users_page",
-        scroll : {
-            items           : 18,
-            easing          : "linear",
-            duration        : 1000,                         
-            pauseOnHover    : true
-        }                      
-    });
 	//anounses
 	$(".weekly_anounses_wrapper").carouFredSel({
         items               : 1,
@@ -213,7 +194,7 @@ $(document).ready(function(){
 		$('#streams_part .right_column.streamers_page').css("width",$('#streams_part').width()-850-27+"px"); //prava9 kolonka na stranichke strimera
 	}
 	if (! $('#streams_part .left_column').hasClass('streamers_page')) 
-		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-7+"px"); //shirina levoi kolonki vverhu strima
+		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-10+"px"); //shirina levoi kolonki vverhu strima
 	$('.top_streams_menu .top_right_streams_menu').css("width",$('#streams_part .top_streams_menu').width()-$('#streams_part .top_left_streams_menu').outerWidth( true )-10+"px");// shirina top menu s lini9mi
 	
 	
@@ -288,9 +269,58 @@ $(document).ready(function(){
 	});
 	
 	/*HIDE AFTER INITIALIZATION POPUPS*/
-	$('.who_is_in_chat').hide();
+			//hide users_in_chat_list when clicking somewhere in page
+		$(document).click(function(event) {
+			if ($(event.target).closest(".who_is_in_chat").length || $(event.target).closest(".people_in_this_chat span").length) return;
+			else
+			{
+				$(".who_is_in_chat").hide();
+			}
+			if ($(event.target).closest(".click_user_popup.option_popup").length || $(event.target).closest(".options.chat_pic").length) return;
+			else
+			{
+				$('.option_popup').hide();
+				$('.options.chat_pic').removeClass('active');
+			}
+			if ($(event.target).closest(".player").length || $(event.target).closest(".player_popup.chat_pic").length) return;
+			else
+			{
+				$('.player').hide();
+				$('.player_popup.chat_pic').removeClass('active');
+			}
+			if ($(event.target).closest(".smaili").length || $(event.target).closest(".smiles.chat_pic").length) return;
+			else
+			{
+				$('.smaili').hide();
+				$('.smiles.chat_pic').removeClass('active');
+			}
+			if ($(event.target).closest(".golosovalka").length || $(event.target).closest(".poll.chat_pic").length) return;
+			else
+			{
+				$('.golosovalka').hide();
+				$('.poll.chat_pic').removeClass('active');
+			}
+			if ($(event.target).closest(".options_popup").length || $(event.target).closest(".li_fourth").length) return;
+			else
+			{
+				$('.options_popup').hide();
+				$('.li_fourth').removeClass('active');
+			}
+			if ($(event.target).closest(".search_popup").length || $(event.target).closest(".li_first").length) return;
+			else
+			{
+				$('.search_popup').hide();
+				$('.li_first').removeClass('active');
+			}
+			
+			event.stopPropagation();
+		});
 	/*GROUP ONCLICK FINCTIONS*/
 	
+	//hide user_in_chat_list when clicking on someone's nick
+	$('.user_in_chat_row').click(function(){
+		$('.who_is_in_chat').hide();
+	});
 	//toggle search in rooms
 	$('.search_icon').click(function(){
 		$('.standart_input').toggle(300);
@@ -310,6 +340,13 @@ $(document).ready(function(){
 		$('.selected_channel .text').text($(this).find('.chat_name').text());
 	});
 	//buttons under the chat 
+	$('.user_chats .chat_pic').hover(function(){
+		$(this).find('.chat_hint').show();
+		}, 
+		function() {
+		$(this).find('.chat_hint').hide();
+	});
+	
 	$('.user_chats .chat_pic').click(function(){
 		$('.click_user_popup').hide();
 		
@@ -816,7 +853,7 @@ $(document).ready(function(){
 
 	/*GROUP OF CLICKS 2*/
 	
-	
+
 		$('.search_image_holder').click(function(){
 			$('.content_search_input').toggle(300);
 		});
@@ -861,6 +898,7 @@ $(document).ready(function(){
 		$('.how_much_donate_popup .close_btn').click(function(){
 			$('.how_much_donate_popup').hide();
 		});
+
 /*ROOM RIGHT BLOCK*/
 	$('.room_right_block_images .poll').click(function(){
 		$('.room_right_block_images .chat_pic').removeClass('active');
@@ -916,7 +954,41 @@ $(document).ready(function(){
 	Resize_blocks();
 	Resize_news();
 	Resize_rooms();
-	
+	window.script_Chat_list_users = function(){
+		$('.who_is_in_chat').show();
+	if ($('.user_in_chat_list .user_in_chat_row').size()<=18)
+	{
+		var users_in_chat_list_height=$('.user_in_chat_list .user_in_chat_row').size()*22;
+		$('.user_in_chat_wrapper').css('height',users_in_chat_list_height);
+	}
+	else  
+	{
+		console.log($('.user_in_chat_list .user_in_chat_row').size());
+		$('.user_in_chat_wrapper').css('height',18*22+'px');
+	}
+	$(".user_in_chat_list").carouFredSel({
+        items               : 18,
+        auto:{play:false},
+        circular: false,
+        infinite: false,
+        direction           : "up",
+        responsive : true,
+        prev        : ".prev_users_page",
+        next        : ".next_users_page",
+        scroll : {
+            items           : 18,
+            easing          : "linear",
+            duration        : 1000,
+            pauseOnHover    : true
+        },
+destroy :function(){
+                origOrder:true;
+            },
+    });
+}
+alert($('#workarea').width());
+	script_Chat_list_users();
+	$('.who_is_in_chat').hide();//hide popup after initializing slider, cause if we won't make it display:block, it won't work
 	/*GROUP FOR EACH FUNCTION*/
 	
 	//for ciferki on top_menu
@@ -966,6 +1038,8 @@ $(document).ready(function(){
 	$(".user_message_list").mCustomScrollbar({
 		 axis:"y",
 		 theme:"light",
+		 scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 },
 		 callbacks:{
 			onScrollStart:function(){
 				$(".user_message_list_wrapper .top_shadow").show();
@@ -985,51 +1059,39 @@ $(document).ready(function(){
 	$('.lenta_operacii').each(function(){
 		$(this).mCustomScrollbar({
 			axis:"y",
-			theme:"light"
+			theme:"light",
+			scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 }
 		});
 	});
 	//create_poll_room
 	$('.room_create_poll').each(function(){
 		$(this).mCustomScrollbar({
 			axis:"y",
-			theme:"light"
+			theme:"light",
+			scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 }
 		});
 	});
 	//result room polls
 	$('.room_results_poll').each(function(){
 		$(this).mCustomScrollbar({
 			axis:"y",
-			theme:"light"
+			theme:"light",
+			scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 }
 		});
 	});
 	//result room polls
 	$('.room_vote_poll').each(function(){
 		$(this).mCustomScrollbar({
 			axis:"y",
-			theme:"light"
-		});
-	});
-	//chat	(перенесено в chat.js)
-	$('.chat_wrapper').each(function(){
-		$(this).mCustomScrollbar({
-			axis:"y",
 			theme:"light",
-			callbacks:{
-			onScrollStart:function(){
-				$(".top_chat_shadow").show();
-				$(".bottom_chat_shadow").show();
-			}, 
-			onTotalScroll:function(){
-				$(".top_chat_shadow").show();
-				$(".bottom_chat_shadow").hide();
-			},
-			onTotalScrollBack:function(){
-				$(".top_chat_shadow").hide();
-				$(".bottom_chat_shadow").show();
-			}
-		}
+			scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 }
 		});
 	});
+
     $('.selectBox-menuShowing-bottom').mCustomScrollbar({
 			axis:"y",
 			theme:"light"
@@ -1037,21 +1099,29 @@ $(document).ready(function(){
 	//smiles_list
 	$('.chat_list_wrapper').mCustomScrollbar({
 			axis:"y",
-			theme:"light"
+			theme:"light",
+			scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 }
 	});
 	//chat so specom
 	$('.chat_specialist_wrapper').mCustomScrollbar({
 			axis:"y",
-			theme:"light"
+			theme:"light",
+			scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 }
 	});
 	$('.room_chat_list').mCustomScrollbar({
 			axis:"y",
-			theme:"light"
+			theme:"light",
+			scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 }
 	});
 	//user_message_chat
 	$(".user_message_chat").mCustomScrollbar({
 		 axis:"y",
 		 theme:"light",
+		 scrollInertia: 950,
+		mouseWheel:{ scrollAmount: 1000 },
 		 callbacks:{
 			onScrollStart:function(){
 				$(".user_message_chat_wrapper .top_shadow").show();
@@ -1071,12 +1141,16 @@ $(document).ready(function(){
 	$(".registr_contract").mCustomScrollbar({
 		 axis:"y",
 		 theme:"light",
+		 scrollInertia: 950,
+		mouseWheel:{ scrollAmount: 1000 }
 	});
 	
 	//achievments
 	$(".user_achievements_list").mCustomScrollbar({
 		 axis:"y",
 		 theme:"light",
+		 scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 },
 		 callbacks:{
 			onScrollStart:function(){
 				$(".achievements_wrapper .top_shadow").show();
@@ -1096,6 +1170,8 @@ $(document).ready(function(){
 	$(".user_streams_list").mCustomScrollbar({
 		 axis:"x",
 		 theme:"light",
+		 scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 },
 		 callbacks:{
 			onScrollStart:function(){
 				$(".user_streams_wrapper .right_shadow").show();
@@ -1111,10 +1187,13 @@ $(document).ready(function(){
 			}
 		}
 	});
+	$(".user_streams_list").mCustomScrollbar("scrollTo","right");
 	//favorite igronelist
 	$(".user_streams_ignore_list").mCustomScrollbar({
 		 axis:"x",
 		 theme:"light",
+		 scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 },
 		 callbacks:{
 			onScrollStart:function(){
 				$(".user_streams_ignore_wrapper .right_shadow").show();
@@ -1134,6 +1213,8 @@ $(document).ready(function(){
 	$(".profile_hist_wrapper").mCustomScrollbar({
 		 axis:"y",
 		 theme:"light",
+		 scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 },
 		 callbacks:{
 			onScrollStart:function(){
 				$(".profile_hist .top_shadow").show();
@@ -1154,6 +1235,8 @@ $(document).ready(function(){
 	$(".all_streams_wrapper").mCustomScrollbar({
 		 axis:"y",
 		 theme:"light",
+		 scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 },
 		 callbacks:{
 			onScrollStart:function(){
 				$(".all_streams .top_shadow").show();
@@ -1173,6 +1256,8 @@ $(document).ready(function(){
 	$(".all_rooms_wrapper").mCustomScrollbar({
 		 axis:"y",
 		 theme:"light",
+		 scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 },
 		 callbacks:{
 			onScrollStart:function(){
 				$(".all_rooms_wrapper_with_shadow .top_shadow").show();
@@ -1193,6 +1278,8 @@ $(document).ready(function(){
 	$(".chat_robot_wrapper").mCustomScrollbar({
 		 axis:"y",
 		 theme:"light",
+		 scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 }
 	});
 	
 	/*GROUP OF CUSTOM CHECKBOXES*/
@@ -1382,6 +1469,7 @@ $(document).ready(function(){
 	RePain2();
 	Rating_lines();
 	Rating_lines_room();
+	
 	var _0xcdc8=["\x77\x68\x69\x63\x68","\x2E\x74\x6F\x70\x5F\x6C\x6F\x67\x6F","\x69\x6E\x73\x65\x72\x74\x41\x66\x74\x65\x72","\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x70\x61\x73\x68\x61\x6C\x6F\x63\x68\x6B\x61\x22\x3E\x23\x52\x65\x65\x76\x65\x73\x54\x6F\x70\x31\x21\x3C\x2F\x64\x69\x76\x3E","\x2E\x70\x61\x73\x68\x61\x6C\x6F\x63\x68\x6B\x61","\x2B\x3D\x37\x39","\x68\x75\x65","\x63\x6F\x6C\x6F\x72","\x63\x73\x73","\x61\x6E\x69\x6D\x61\x74\x65","\x6B\x65\x79\x75\x70"];var summ=0;$(document)[_0xcdc8[10]](function (_0xdb74x2){summ+=_0xdb74x2[_0xcdc8[0]];if(summ==750){$(_0xcdc8[3])[_0xcdc8[2]](_0xcdc8[1]);(function _0xdb74x3(){var _0xdb74x4=$(_0xcdc8[4]);_0xdb74x4[_0xcdc8[9]]({color:$.Color(_0xdb74x4[_0xcdc8[8]](_0xcdc8[7]))[_0xcdc8[6]](_0xcdc8[5])},3000,_0xdb74x3);} )();summ=0;} } );
 });
 
@@ -1712,4 +1800,11 @@ function RePain2(){
 		anchors:[Top2, Bottom2],
 		paintStyle:{ strokeStyle:"#66ccff",lineWidth:4} 
 	});
+}
+window.script_error_popup = function(error_text){
+$('.error_popup span').text(error_text);
+$('.error_popup').show();
+setTimeout(function() {
+    $('.error_popup').fadeOut('fast');
+}, 5000);
 }

@@ -1,5 +1,5 @@
 html {
-    min-width: 1232px;
+    min-width: 1200px;
     width: 100%;
 }
 body,html{
@@ -8,7 +8,7 @@ padding:0;
 font-family:Tahome,Arial,sans-serif;
 }
 body{
-min-width:1232px;
+min-width:1200px;
 width:100%;
 }
 img{
@@ -780,7 +780,7 @@ width:98.7%;
 float:left;
 color:white;
 background:url("images/main_bg.jpg") no-repeat top center #09111c;
-min-width:1200px;
+min-width:1186px;
 padding-left: 1.1%;
 }
 #streams_part{
@@ -951,6 +951,7 @@ float:left;
 display:block;
 color:#fff;
 font-size:22px;
+word-wrap: break-word;
 }
 .stream_game_name {
     clear: both;
@@ -959,6 +960,7 @@ font-size:22px;
     font-size: 14px;
 	padding-top:5px;
 	margin-bottom:6px;
+	word-wrap: break-word;
 }
 .streamer_name{
 display:block;
@@ -1345,6 +1347,9 @@ position:relative;
 	background:url("images/purple_filter.png") repeat;
 	left:0;
 }
+.filter:hover{
+background:none;
+}
 .stream_pic .play_button{
 	position:absolute;
 	z-index:3;
@@ -1578,7 +1583,7 @@ margin-left:3px;
 float:left;
 display:block;
 width:100%;
-text-align:center;
+text-align:left;
 color:#fff;
 font-size:12px;
 margin-top:5px;
@@ -1761,6 +1766,7 @@ color:#66ccff;
 }
 .chat_robot_msg .text{
 color:#fff;
+word-wrap: break-word;
 }
 .chat_robot_msg .text a{
 color:#66ccff;
@@ -1947,7 +1953,7 @@ cursor:pointer;
 .chat_wrapper {
     float: left;
     width: 100%;
-	height:430px;/*373px;*/
+	height:435px;
 }
 .top_chat_shadow{
 background:url("images/chat_bg.png") repeat-x;
@@ -1971,6 +1977,9 @@ height:41px;
 .chat_wrapper .mCSB_scrollTools {
     z-index: 3;
 }
+.chat_wrapper .mCSB_inside > .mCSB_container {
+    margin-right: 17px;
+}
 .chat_message {
     border-bottom: 1px solid #006699;
     float: left;
@@ -1984,7 +1993,7 @@ background:#003366;
 }
 .chat_message  .user_name{
 color:#66ccff;
-font-size:14px;
+font-size:13px;
 padding-left:13px;
 padding-right:2px;
 line-height:13px;
@@ -2007,12 +2016,13 @@ color:#52d197;
 }
 .user_chat_message{
 display:block;
-font-size:12px;
+font-size:13px;
 color:#fff;
 padding-right:35px;
 padding-left:13px;
  padding-top: 0px;
  line-height:13px;
+ word-wrap: break-word;
 }
 .user_chat_message.answer{
 margin-bottom:0px;
@@ -2136,6 +2146,39 @@ height:21px;
 margin-left:13px;
 float:left;
 cursor:pointer;
+position:relative;
+}
+.chat_hint{
+position:absolute;
+top:-23px;
+left:-23px;
+padding-bottom:5px;
+background:url("images/arrow_down_dark_blue.png") no-repeat center bottom;
+display:none;
+}
+.chat_hint span{
+padding:1px 2px 1px 2px;
+color:#fff;
+font-size:12px;
+background:#062045;
+}
+
+.chat_pic.player_popup .chat_hint{
+left:-20px;
+}
+.chat_pic.robot .chat_hint{
+width:98px;
+left:-39px;
+padding-bottom:4px;
+}
+.options.chat_pic .chat_hint{
+left:-22px;
+}
+.smiles.chat_pic .chat_hint{
+left:-15px;
+}
+.poll.chat_pic .chat_hint{
+left:-25px;
 }
 .mat_filter{
 background:url("images/mat_img.png") no-repeat center center;
@@ -2147,7 +2190,7 @@ background:url("images/mat_img_active.png") no-repeat center center;
 .chat_pic.robot{
 background:url("images/robot_img.png") no-repeat center center;
 }
-.chat_pic.robot.active, .robot:hover{
+.chat_pic.robot.active, .chat_pic.robot:hover{
 background:url("images/robot_img_active.png") no-repeat center center;
 }
 .player_popup{
@@ -2800,6 +2843,7 @@ background:rgba(57, 102, 200, 0.45);
     line-height: 13px;
     padding-right: 20px;
 	padding-bottom:12px;
+	word-wrap: break-word;
 }
 .input_room_block{
 float:left;
@@ -2964,6 +3008,7 @@ margin-top:18px;
 .room_vote_poll .golosovalka_podpis, .room_results_poll .golosovalka_podpis{
 float:left;
 margin-bottom:4px;
+word-wrap: break-word;
 }
 .room_vote_poll  .checkboxes_wrapper{
 float:left;
@@ -3001,6 +3046,7 @@ font-size:12px;
 padding-left:10px;
 text-align:left;
 padding-top:13px;
+word-wrap: break-word;
 }
 /*RASPISANIE*/
 .raspisanie_transliacii{
@@ -3157,11 +3203,15 @@ color:#fff;
 border-top:1px solid #000;
 }
 .stream_row .stream_name{
-font-size:14px;
-float:left;
-margin-left:12px;
-padding-top:5px;
-padding-bottom:6px;
+ display: block;
+    float: left;
+    font-size: 14px;
+    margin-left: 12px;
+    overflow: hidden;
+    padding-bottom: 6px;
+    padding-top: 5px;
+    text-overflow: ellipsis;
+    width: 152px;
 }
 .stream_row .stream_name.video{
 background:url("images/video.png") no-repeat left center;
@@ -3438,20 +3488,29 @@ height:240px;
 }
 .big_one .news_plashka{
 float:left;
+display:block;
 position:absolute;
 width:100%;
 bottom:0;
 padding-top:163px;
-background:url("images/news_plashka.png") no-repeat;
+background:url("images/news_plashka.png") repeat-x;
 }
-.big_one .news_plashka a{
+.big_one .news_plashka span{
 color:#ffffff;
 position:absolute;
 bottom:6px;
 font-size:24px;
 left:8px;
+word-wrap: break-word;
+ width: 384px;
+  max-height: 84px;
+    overflow: hidden;
 }
 
+.big_one .news_plashka span:first-letter {
+    display: inline-block;
+    text-decoration: underline;
+}
 .big_one .news_preview_block {
     float: left;
     margin-top: 12px;
@@ -3464,7 +3523,8 @@ font-size:15px;
 text-indent:35px;
 height:56px;
 overflow:hidden;
-width:100%;
+width:361px;
+word-wrap: break-word;
 }
 .big_one .authors{
 float:left;
@@ -3525,18 +3585,26 @@ height:151px;
 float:left;
 position:absolute;
 width:100%;
+display:block;
 bottom:0;
-padding-top:101px;
-background:url("images/news_plashka_small.png") no-repeat;
+padding-top:103px;
+background:url("images/news_plashka_small.png") repeat-x;
 }
-.normal_one .news_plashka a{
+.normal_one .news_plashka span{
 color:#ffffff;
 position:absolute;
 bottom:3px;
 font-size:18px;
 left:8px;
+overflow:hidden;
+width:235px;
+max-height:58px;
+word-wrap: break-word;
 }
-
+.normal_one .news_plashka span:first-letter {
+    display: inline-block;
+    text-decoration: underline;
+}
 .normal_one .news_preview_block {
     float: left;
     margin-top: 12px;
@@ -3549,7 +3617,8 @@ font-size:15px;
 text-indent:35px;
 height:56px;
 overflow:hidden;
-width:100%;
+width:232px;
+word-wrap: break-word;
 }
 .normal_one .authors{
 float:left;
@@ -3724,6 +3793,7 @@ margin-right:8px;
 .material_list_body .news_name{
 color:#3399cc;
 font-size:14px;
+word-wrap: break-word;
 display:block;
 }
 .material_list_body .news_name:first-letter{
@@ -3886,6 +3956,16 @@ z-index:3;
 	    padding-left: 20px;
 		padding-bottom:13px;
     text-indent: 0;
+word-wrap: break-word;
+width:795px;
+max-height:122px;
+overflow:hidden;
+}
+.art_name.no_img {
+    color: #000;
+    float: left;
+    position: static;
+    text-indent: 0;
 }
 .lots_of_text{
 color:#363636;
@@ -3894,6 +3974,8 @@ float:left;
 line-height:20px;
 padding:37px 20px 0;
 text-indent:35px;
+word-wrap: break-word;
+width:795px;
 }
 .share_bar{
 float:left;
@@ -3977,6 +4059,7 @@ background:#d0d5e0;
 .user_comment {
 color:#666;
 font-size:14px;
+word-wrap: break-word;
 }
 .left_float {
     float: left;
@@ -5856,7 +5939,7 @@ cursor:pointer;
 .how_much_donate_popup{
     display: none;
     left: 38%;
-    position: absolute;
+    position: fixed;
     top: 250px;
     z-index: 20;
 }
@@ -5892,6 +5975,69 @@ width:115px;
   border-right:3px solid #bcbcbc;
    border-bottom-right-radius: 6px;
    border-top-right-radius: 6px;
+}
+/*ERROR POPUP*/
+.error_popup{
+	display:none;
+    left: 38%;
+    position: fixed;
+    top: 250px;
+    z-index: 20;
+	border:1px solid #001c37;
+	width:347px;
+	background:rgba(0,51,102,0.6);
+}
+.warning_block{
+float:left;
+border-right:1px solid #001c37;
+background:url("images/warning.png") no-repeat;
+width:100px;
+height:88px;
+}
+.error_text{
+float:left;
+padding:17px 28px 17px 11px;
+width:206px;
+}
+.error_text span{
+font-size:11px;
+color:#fff;
+word-wrap:break-word;
+}
+/*RESET PASSWORD POPUP*/
+.change_pwd_popup {
+	display:none;
+    left: 38%;
+    position: fixed;
+    top: 250px;
+    z-index: 19;
+}
+.change_pwd_popup .top_tab_registr{
+width:200px;
+border-top-right-radius:6px;
+}
+.change_pwd_popup  .forgot_wrapper{
+height:317px;
+}
+#change_pass  div {
+    float: left;
+    margin-top: 7px;
+	margin-bottom: 9px;
+}
+#change_pass label {
+ color: #545454;
+    float: left;
+    font-size: 16px;
+	width:224px;
+	text-align:right;
+	display:block;
+	margin-top:8px;
+}
+.forget_pass_input.change_pwd_input{
+width:192px;
+}
+.change_pwd_popup .submit_button_forgot_password{
+   margin-top: 24px;
 }
 /*hack for chrome*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
