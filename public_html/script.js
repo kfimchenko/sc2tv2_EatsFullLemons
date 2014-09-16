@@ -79,7 +79,7 @@ $(document).ready(function(){
 		$('#streams_part .right_column.streamers_page').css("width",$('#streams_part').width()-850-27+"px"); //prava9 kolonka na stranichke strimera
 	}
 	if (! $('#streams_part .left_column').hasClass('streamers_page')) 
-		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-7+"px"); //shirina levoi kolonki vverhu strima
+		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-10+"px"); //shirina levoi kolonki vverhu strima
 	$('.top_streams_menu .top_right_streams_menu').css("width",$('#streams_part .top_streams_menu').width()-$('#streams_part .top_left_streams_menu').outerWidth( true )-10+"px");// shirina top menu s lini9mi
 	
 	
@@ -194,7 +194,7 @@ $(document).ready(function(){
 		$('#streams_part .right_column.streamers_page').css("width",$('#streams_part').width()-850-27+"px"); //prava9 kolonka na stranichke strimera
 	}
 	if (! $('#streams_part .left_column').hasClass('streamers_page')) 
-		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-7+"px"); //shirina levoi kolonki vverhu strima
+		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-10+"px"); //shirina levoi kolonki vverhu strima
 	$('.top_streams_menu .top_right_streams_menu').css("width",$('#streams_part .top_streams_menu').width()-$('#streams_part .top_left_streams_menu').outerWidth( true )-10+"px");// shirina top menu s lini9mi
 	
 	
@@ -317,6 +317,10 @@ $(document).ready(function(){
 		});
 	/*GROUP ONCLICK FINCTIONS*/
 	
+	//hide user_in_chat_list when clicking on someone's nick
+	$('.user_in_chat_row').click(function(){
+		$('.who_is_in_chat').hide();
+	});
 	//toggle search in rooms
 	$('.search_icon').click(function(){
 		$('.standart_input').toggle(300);
@@ -950,7 +954,7 @@ $(document).ready(function(){
 	Resize_blocks();
 	Resize_news();
 	Resize_rooms();
-	window.Chat_list_users = function(){
+	window.script_Chat_list_users = function(){
 		$('.who_is_in_chat').show();
 	if ($('.user_in_chat_list .user_in_chat_row').size()<=18)
 	{
@@ -982,7 +986,8 @@ destroy :function(){
             },
     });
 }
-	Chat_list_users();
+alert($('#workarea').width());
+	script_Chat_list_users();
 	$('.who_is_in_chat').hide();//hide popup after initializing slider, cause if we won't make it display:block, it won't work
 	/*GROUP FOR EACH FUNCTION*/
 	
@@ -1086,30 +1091,7 @@ destroy :function(){
 			mouseWheel:{ scrollAmount: 1000 }
 		});
 	});
-	//chat	(перенесено в chat.js)
-	$('.chat_wrapper').each(function(){
-		$(this).mCustomScrollbar({
-			axis:"y",
-			theme:"light",
-			scrollInertia: 950,
-			mouseWheel:{ scrollAmount: 1000 },
-			callbacks:{
-			onScrollStart:function(){
-				$(".top_chat_shadow").show();
-				$(".bottom_chat_shadow").show();
-			}, 
-			onTotalScroll:function(){
-				$(".top_chat_shadow").show();
-				$(".bottom_chat_shadow").hide();
-			},
-			onTotalScrollBack:function(){
-				$(".top_chat_shadow").hide();
-				$(".bottom_chat_shadow").show();
-			}
-		}
-		});
-		$(this).mCustomScrollbar("scrollTo","bottom");	
-	});
+
     $('.selectBox-menuShowing-bottom').mCustomScrollbar({
 			axis:"y",
 			theme:"light"
@@ -1818,4 +1800,11 @@ function RePain2(){
 		anchors:[Top2, Bottom2],
 		paintStyle:{ strokeStyle:"#66ccff",lineWidth:4} 
 	});
+}
+window.script_error_popup = function(error_text){
+$('.error_popup span').text(error_text);
+$('.error_popup').show();
+setTimeout(function() {
+    $('.error_popup').fadeOut('fast');
+}, 5000);
 }
