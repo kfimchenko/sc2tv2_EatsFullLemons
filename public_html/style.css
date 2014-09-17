@@ -1201,19 +1201,19 @@ float:left;
 width:100%;
 background:rgba(0,0,0,0.6);
 position:relative;
+margin-top:5px;
 }
 .all_streams_wrapper{
 margin-left: 10px;
-    width: 97%;
+    width: 98%;
 height:543px;
-border-top:5px solid #0099ff;
-border-bottom:5px solid #0099ff;
+
 }
 .top_stream_wrapper_border1{
 background:url("images/border_top1.png") no-repeat left 0;
 position:absolute;
 width:100px;
-top: -4px;
+top: -9px;
 height:9px;
 left:0px;
 float:left;
@@ -1223,7 +1223,7 @@ background:url("images/border_top.png") no-repeat right 0;
 position:absolute;
 width:100px;
 height:9px;
-top: -4px;
+top: -9px;
 float:right;
 right:0px;
 }
@@ -1233,7 +1233,7 @@ position:absolute;
 width:100px;
 height:9px;
 float:left;
-bottom:-4px;
+bottom:-9px;
 left:0px;
 }
 .bottom_stream_wrapper_border2{
@@ -1242,8 +1242,14 @@ position:absolute;
 width:100px;
 height:9px;
 float:right;
-bottom:-4px;
+bottom:-9px;
 right:0px;
+}
+.top_stream_wrapper_middle_border {
+z-index:2;
+}
+.top_stream_wrapper_middle_border.top_line_for_style{
+top:-5px;
 }
 .stream.big_one {
     float: left;
@@ -1825,7 +1831,7 @@ margin-top:23px;
     width: 100%;
 	margin-top:5px;
 }
-.stream_wrapper_middle_border {
+.stream_wrapper_middle_border,.top_stream_wrapper_middle_border {
     float: left;
     height: 5px;
     left: 100px;
@@ -3983,6 +3989,36 @@ width:100%;
 margin-top:70px;
 margin-bottom:74px;
 }
+.shareBar_wrapper{
+width: 100px; height: 100px; position: relative; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; background-color: #888fff;float:left;
+}
+.share_first_part{
+position: absolute; top: 0px; left: 0px; width: 100px; height: 100px; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; clip: rect(0px 100px 100px 50px);display:block
+}
+.share_link_first_part{
+position: absolute; top: 0px; left: 0px; width: 100px; height: 100px; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; clip: rect(0px 50px 100px 0px); -webkit-transform: rotate(119.99700000000001deg); transform: rotate(119.99700000000001deg); background-color: #444fff;display:block
+}
+.share_link_first_part:hover{
+background:white;
+}
+.share_second_part{
+position: absolute; top: 0px; left: 0px; width: 100px; height: 100px; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; clip: rect(0px 100px 100px 50px); -webkit-transform: rotate(119.99700000000001deg); transform: rotate(119.99700000000001deg);
+}
+.share_link_second_part{
+position: absolute; top: 0px; left: 0px; width: 100px; height: 100px; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; clip: rect(0px 50px 100px 0px); -webkit-transform: rotate(120.0042deg); transform: rotate(120.0042deg); background-color: #000000;
+}
+.share_link_second_part:hover{
+background:white;
+}
+.share_third_part{
+position: absolute; top: 43px; left: 75px; height: 100px; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; clip: rect(0px 100px 100px 50px); -webkit-transform: rotate(240.0012deg); transform: rotate(240.0012deg);
+}
+.share_link_third_part{
+position: absolute; top: 0px; left: 0px; width: 100px; height: 100px; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; clip: rect(0px 50px 100px 0px); -webkit-transform: rotate(119.99880000000003deg); transform: rotate(119.99880000000003deg); background-color: #1a665c;
+}
+.share_link_third_part:hover{
+background:white;
+}
 .article_comments_wrapper{
 float:left;
 width:100%;
@@ -5891,7 +5927,7 @@ padding-bottom:16px;
 }
 /*UVEDOMLENIA/PREDUPREJDENIA POPUP*/
 .sysmess_wrapper{
-position:absolute;
+position:fixed;
 z-index:7;
 right:6px;
 top:43px;
