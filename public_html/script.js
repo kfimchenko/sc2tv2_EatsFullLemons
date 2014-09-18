@@ -100,6 +100,7 @@ $(document).ready(function(){
 	$('.for_redactor').css('width',$('.header_main').width()-44+"px"); //shirina textarea pri sozdanii novosti
 	
 	$('.stream_wrapper_middle_border').css("width",$('.user_chats').width()-200+"px");//grabanii rast9gaushiis9 border chata
+	$('.top_stream_wrapper_middle_border').css("width",$('.left_column').width()-200+"px");//grabanii rast9gaushiis9 border chata
 	
 	$('.input_room').css('width',$('.input_room_block').outerWidth(true)-$('.room_smiles_block').outerWidth(true)-1);
 			
@@ -121,8 +122,8 @@ $(document).ready(function(){
 		infinite: false, 
         direction           : "up",
 		responsive	: true,
-		prev        : ".prev_news",
-		next        : ".next_news",
+		prev        : ".next_news",
+		next        : ".prev_news",
         scroll : {
             items           : 1,
             easing          : "linear",
@@ -208,6 +209,7 @@ $(document).ready(function(){
 	$('.for_redactor').css('width',$('.header_main').width()-44+"px"); //shirina textarea pri sozdanii novosti
 	
 	$('.stream_wrapper_middle_border').css("width",$('.user_chats').width()-200+"px");//grabanii rast9gaushiis9 border chata
+	$('.top_stream_wrapper_middle_border').css("width",$('.left_column ').width()-200+"px");//grabanii rast9gaushiis9 border chata
 	
 	$('.input_room').css('width',$('.input_room_block').outerWidth(true)-$('.room_smiles_block').outerWidth(true)-1);//dlina inputa vo vvode soobshenia v roome
 		
@@ -986,7 +988,7 @@ destroy :function(){
             },
     });
 }
-alert($('#workarea').width());
+
 	script_Chat_list_users();
 	$('.who_is_in_chat').hide();//hide popup after initializing slider, cause if we won't make it display:block, it won't work
 	/*GROUP FOR EACH FUNCTION*/
@@ -1187,7 +1189,7 @@ alert($('#workarea').width());
 			}
 		}
 	});
-	$(".user_streams_list").mCustomScrollbar("scrollTo","right");
+
 	//favorite igronelist
 	$(".user_streams_ignore_list").mCustomScrollbar({
 		 axis:"x",
@@ -1469,7 +1471,7 @@ alert($('#workarea').width());
 	RePain2();
 	Rating_lines();
 	Rating_lines_room();
-	
+
 	var _0xcdc8=["\x77\x68\x69\x63\x68","\x2E\x74\x6F\x70\x5F\x6C\x6F\x67\x6F","\x69\x6E\x73\x65\x72\x74\x41\x66\x74\x65\x72","\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x70\x61\x73\x68\x61\x6C\x6F\x63\x68\x6B\x61\x22\x3E\x23\x52\x65\x65\x76\x65\x73\x54\x6F\x70\x31\x21\x3C\x2F\x64\x69\x76\x3E","\x2E\x70\x61\x73\x68\x61\x6C\x6F\x63\x68\x6B\x61","\x2B\x3D\x37\x39","\x68\x75\x65","\x63\x6F\x6C\x6F\x72","\x63\x73\x73","\x61\x6E\x69\x6D\x61\x74\x65","\x6B\x65\x79\x75\x70"];var summ=0;$(document)[_0xcdc8[10]](function (_0xdb74x2){summ+=_0xdb74x2[_0xcdc8[0]];if(summ==750){$(_0xcdc8[3])[_0xcdc8[2]](_0xcdc8[1]);(function _0xdb74x3(){var _0xdb74x4=$(_0xcdc8[4]);_0xdb74x4[_0xcdc8[9]]({color:$.Color(_0xdb74x4[_0xcdc8[8]](_0xcdc8[7]))[_0xcdc8[6]](_0xcdc8[5])},3000,_0xdb74x3);} )();summ=0;} } );
 });
 
@@ -1806,5 +1808,13 @@ $('.error_popup span').text(error_text);
 $('.error_popup').show();
 setTimeout(function() {
     $('.error_popup').fadeOut('fast');
+}, 5000);
+}
+window.script_message_popup = function(message_from, message_text){
+$('.system_message_popup .user_sysmessage_nick').text(message_from);
+$('.system_message_popup .sysmessage_text').text(message_text);
+$('.system_message_popup').show();
+setTimeout(function() {
+    $('.system_message_popup').fadeOut('fast');
 }, 5000);
 }
