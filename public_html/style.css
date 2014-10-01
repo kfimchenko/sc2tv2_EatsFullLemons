@@ -273,7 +273,7 @@ width:97.4%;
 position:absolute;
 z-index:5;
 top:37px;
-display:none;
+visibility:hidden;
 min-width:1150px;
 }
 #user_popup_menu{
@@ -384,6 +384,13 @@ background: url("images/pic2.png") no-repeat scroll 4px 17px rgba(0, 0, 0, 0);
 margin:0 0.9%;
 overflow:hidden;
 width:98.2%;
+  position: absolute;
+    top: 88px;
+	visibility:hidden;
+}
+.user_popup_body.user_messages{
+	visibility:visible;
+	top:-9999px;
 }
 .user_message_list_wrapper {
     float: left;
@@ -403,7 +410,7 @@ background: url("images/bottom_shadow.png") repeat-x scroll left bottom rgba(0, 
     position: absolute;
     width: 36%;
     z-index: 10;
-	top:357px;
+	top:270px;
 }
 .user_message_list_wrapper .top_shadow{
 background: url("images/top_shadow.png") repeat-x scroll left top rgba(0, 0, 0, 0);
@@ -411,7 +418,7 @@ background: url("images/top_shadow.png") repeat-x scroll left top rgba(0, 0, 0, 
     position: absolute;
     width: 36%;
     z-index: 10;
-	top:98px;
+	top:11px;
 	display:none;
 }
 
@@ -515,7 +522,7 @@ background: url("images/bottom_shadow.png") repeat-x scroll left bottom rgba(0, 
     position: absolute;
     width: 62.2%;
     z-index: 10;
-	top:357px;
+	top:270px;
 }
 .user_message_chat_wrapper .top_shadow{
 background: url("images/top_shadow.png") repeat-x scroll left top rgba(0, 0, 0, 0);
@@ -523,7 +530,7 @@ background: url("images/top_shadow.png") repeat-x scroll left top rgba(0, 0, 0, 
     position: absolute;
     width: 62.2%;
     z-index: 10;
-	top:98px;
+	top:11px;
 	display:none;
 }
 .user_message_chat_contact img{
@@ -716,10 +723,11 @@ cursor:pointer;
 }
 /*HIDDING POPUP BODY*/
 .user_achievements, .user_streams, .user_profile{
-display:none;
+display:block;
 width:99.1%;
-margin-left:0.9%
+margin-left:0.9%;
 }
+
 /*ACHIEVEMENTS*/
 .achievements_wrapper{
 
@@ -763,7 +771,7 @@ background: url("images/bottom_shadow.png") repeat-x scroll 21px bottom rgba(0, 
     position: absolute;
     width: 97%;
     z-index: 10;
-	top:422px;
+	top:335px;
 }
 .achievements_wrapper .top_shadow{
 background: url("images/top_shadow.png") repeat-x scroll left top rgba(0, 0, 0, 0);
@@ -771,7 +779,7 @@ background: url("images/top_shadow.png") repeat-x scroll left top rgba(0, 0, 0, 
     position: absolute;
     width: 97%;
     z-index: 10;
-	top:143px;
+	top:56px;
 	display:none;
 }
 /*MAIN PART*/
@@ -1245,6 +1253,9 @@ float:right;
 bottom:-9px;
 right:0px;
 }
+.user_chats .top_stream_wrapper_border2{
+top:-4px;
+}
 .top_stream_wrapper_middle_border {
 z-index:2;
 }
@@ -1539,7 +1550,7 @@ background: url("images/top_shadow.png") repeat-x scroll left top rgba(0, 0, 0, 
     position: absolute;
     width: 98%;
     z-index: 4;
-	top:5px;
+	top:0px;
 
 	display:none;
 }
@@ -1549,7 +1560,7 @@ background: url("images/bottom_shadow.png") repeat-x scroll left top rgba(0, 0, 
     position: absolute;
     width: 98%;
     z-index: 4;
-	bottom:5px;
+	bottom:0px;
 	display:block;
 }
 /*ANOUNSES*/
@@ -3770,9 +3781,12 @@ width:100%;
 margin-bottom:7px;
 }
 .material_list_top .name{
-color:#3399cc;
-font-size:14px;
-float:left;
+  color: #3399cc;
+    float: left;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 160px;
 }
 .material_list_top .raiting{
 color:#738095;
@@ -5236,7 +5250,7 @@ background: url("images/left_shadow.png") repeat-x scroll left bottom rgba(0, 0,
     height: 313px;
     position: absolute;
     z-index: 10;
-	top:0px;
+	top:7px;
 	width:66px;
 	display:none;
 	left:0;
@@ -5246,7 +5260,7 @@ background: url("images/right_shadow.png") repeat-x scroll left bottom rgba(0, 0
     height: 312px;
     position: absolute;
     z-index: 10;
-	top:0px;
+	top:7px;
 	width:66px;
 	right:0;
 }
@@ -5933,6 +5947,7 @@ right:6px;
 top:43px;
 }
 .system_message_popup{
+display:none;
 float:left;
 border-radius:4px;
 border:1px solid #3477e5;
