@@ -4891,10 +4891,16 @@ padding:8px;
 	font-size:14px;
 }
 .registr_input.custom_time {
-	  margin-left: 14px;
+	  margin-left: 2px;
     margin-top: 4px;
-    width: 55px;
+    width: 123px;
+	text-indent:5px;
 	display:none;
+}
+.newstream_start .registr_label {
+    margin-top: -10px;
+    position: relative;
+    width: 87px;
 }
 .create_stream_wrapper  .registr_label {
 width:143px;
