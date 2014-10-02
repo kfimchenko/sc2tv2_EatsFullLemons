@@ -82,6 +82,7 @@ $(document).ready(function(){
 		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-10+"px"); //shirina levoi kolonki vverhu strima
 	$('.top_streams_menu .top_right_streams_menu').css("width",$('#streams_part .top_streams_menu').width()-$('#streams_part .top_left_streams_menu').outerWidth( true )-10+"px");// shirina top menu s lini9mi
 	
+	$('.all_streams_wrapper .normal_one').first().css('clear','left');
 	
 	$('.content_grey_block .left_column').css("width",$('.content_grey_block').width()-$('.content_grey_block .right_column').outerWidth(true)-($('.content_grey_block').width()*0.013)-11+"px"); //shirina levoi kolonki v grey bloke
 	$('.content_grey_block .content_streams_menu .content_right_streams_menu').css("width",$('.content_grey_block .content_streams_menu').width()-$('.content_grey_block .content_left_streams_menu').outerWidth( true )-5+"px"); //resize big menu v grey bloke
@@ -451,7 +452,16 @@ $(document).ready(function(){
 	//show user_popup_profile
 	$('.user_pic').click(function(){
 		$(this).find('.user_pic_arrow').toggle();
-		$('#user_popup').toggle();
+		if ($('#user_popup').css('visibility')=='hidden')
+		{
+			$('#user_popup').css('visibility','visible');
+			$('.user_popup_body').css('top','88px');
+		}
+		else
+		{
+			$('#user_popup').css('visibility','hidden');
+			$('.user_popup_body').css('top','-9999px');
+		}
 	});
 	//show report popup in article comments
 	$('.report_comment').click(function(){
@@ -488,17 +498,17 @@ $(document).ready(function(){
 		$(this).find('a').addClass('active');
 		
 		$(".user_popup_body").each(function(){
-			$(this).hide();
+			$(this).css('visibility','hidden');
 		});
 		//show popup user's category
 		if ( $(this).find('a').hasClass("seven_menu_pic") )
-			$(".user_achievements").show();
+			$(".user_achievements").css('visibility','visible');
 		else if ( $(this).find('a').hasClass("third_menu_pic") )
-			$(".user_messages").show();
+			$(".user_messages").css('visibility','visible');
 		else if ( $(this).find('a').hasClass("second_menu_pic") )
-			$(".user_streams").show();
+			$(".user_streams").css('visibility','visible');
 		else if ( $(this).find('a').hasClass("first_menu_pic") )
-			$(".user_profile").show();
+			$(".user_profile").css('visibility','visible');
 	});
 	//top_left_streamers_menu
 	$('.top_left_menu_column_text span').click(function(){
@@ -1309,11 +1319,8 @@ destroy :function(){
 	/*GROUP OF CUSTOM SELECTBOXES*/
 	
 	//use this for all site selectses
-	$("select").selectBox();
-        $("select").mCustomScrollbar({
-            axis:"y",
-            theme:"light",
-        });
+	$("select").select2();
+
 	
 	/*GROUP OF HINTS*/
 	
@@ -1471,7 +1478,9 @@ destroy :function(){
 	RePain2();
 	Rating_lines();
 	Rating_lines_room();
-
+	/*$('.random_punkt').click(function(){
+		script_message_popup("dolgovec","error!");
+	});*/
 	var _0xcdc8=["\x77\x68\x69\x63\x68","\x2E\x74\x6F\x70\x5F\x6C\x6F\x67\x6F","\x69\x6E\x73\x65\x72\x74\x41\x66\x74\x65\x72","\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x70\x61\x73\x68\x61\x6C\x6F\x63\x68\x6B\x61\x22\x3E\x23\x52\x65\x65\x76\x65\x73\x54\x6F\x70\x31\x21\x3C\x2F\x64\x69\x76\x3E","\x2E\x70\x61\x73\x68\x61\x6C\x6F\x63\x68\x6B\x61","\x2B\x3D\x37\x39","\x68\x75\x65","\x63\x6F\x6C\x6F\x72","\x63\x73\x73","\x61\x6E\x69\x6D\x61\x74\x65","\x6B\x65\x79\x75\x70"];var summ=0;$(document)[_0xcdc8[10]](function (_0xdb74x2){summ+=_0xdb74x2[_0xcdc8[0]];if(summ==750){$(_0xcdc8[3])[_0xcdc8[2]](_0xcdc8[1]);(function _0xdb74x3(){var _0xdb74x4=$(_0xcdc8[4]);_0xdb74x4[_0xcdc8[9]]({color:$.Color(_0xdb74x4[_0xcdc8[8]](_0xcdc8[7]))[_0xcdc8[6]](_0xcdc8[5])},3000,_0xdb74x3);} )();summ=0;} } );
 });
 
@@ -1810,11 +1819,24 @@ setTimeout(function() {
     $('.error_popup').fadeOut('fast');
 }, 5000);
 }
+
 window.script_message_popup = function(message_from, message_text){
-$('.system_message_popup .user_sysmessage_nick').text(message_from);
-$('.system_message_popup .sysmessage_text').text(message_text);
-$('.system_message_popup').show();
-setTimeout(function() {
-    $('.system_message_popup').fadeOut('fast');
-}, 5000);
+for (var i=1;i<4;i++)
+{
+	if ($('.system_message_popup.mess'+i).is(':visible') && i<4) ;
+	else if(i<4)
+	{
+	$('.system_message_popup.mess'+i+' .user_sysmessage_nick').text(message_from);
+			$('.system_message_popup.mess'+i+' .sysmessage_text').text(message_text);
+			$('.system_message_popup.mess'+i).show();
+			setTimeout(function() {
+				$('.system_message_popup.mess'+i).fadeOut('fast');
+			}, 5000);
+	return ;
+	}
+	else
+	{
+		return "more than 3 messages";
+	}
+}
 }
