@@ -14,14 +14,12 @@
 <script src="jquery.jsPlumb-1.4.1-all-min.js"  type="text/javascript"></script>
 <script src="jquery.carouFredSel-6.2.1.js"  type="text/javascript"></script>
 
-<script src="jquery.selectBox.js" type="text/javascript"></script>
-<link href="jquery.selectbox.css" rel="stylesheet" type="text/css" />
-
 <script src="select2.js" type="text/javascript"></script>
 <link href="select2.css" rel="stylesheet" type="text/css" />
 
 <script src="script.js" type="text/javascript"></script>
-
+<script src="script_roomPage.js" type="text/javascript"></script>
+<script src="script_streamPage.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -1400,13 +1398,13 @@
 							<a href="#" class="top_menu_a">LoL</a>
 							<a href="#" class="top_menu_a">Sc2</a>
 							<a href="#" class="top_menu_a">World of Tanks</a>
-							<a href="#" class="top_menu_a">Другое</a>
+							<a href="#" class="top_menu_a show_category_search">Другое</a>
 						</div>
 					</div>
 				</div>
 				
 				<!---MAIN STREAMS clean that "disaply:none" style, i added it to make 2-3 blocks in 1 wrapper, like it'll be in site-->
-				<div class="all_streams"  >
+				<div class="all_streams"  style="display:none;">
 					<div class="top_stream_wrapper_border1"></div>
 					<div class="top_stream_wrapper_middle_border top_line_for_style"></div>
 					<div class="top_stream_wrapper_border2"></div>
@@ -1706,7 +1704,7 @@
 				</div>
 				
 				<!---STREAMER PAGE-->
-				<div class="user_stream_page" style="display:none;" >
+				<div class="user_stream_page"  >
 					<div class="top_stream_wrapper_border1"></div>
 					<div class="top_stream_wrapper_border2"></div>
 					<div class="user_tream_page_wrapper">
@@ -1996,10 +1994,10 @@
 									<div class="mat_filter chat_pic"></div>
 									<div class="click_user_popup option_popup" style="display: none;">
 										<div class="click_user_popup_wrapper">
-											<div class="click_user_popup_row">
+											<div class="click_user_popup_row enabled">
 												Стать роботом
 											</div>
-											<div class="click_user_popup_row">
+											<div class="click_user_popup_row disabled">
 												Скрыть меня в списке
 											</div>
 											<div class="click_user_popup_row">
@@ -2956,10 +2954,10 @@
 									<div class="robot chat_pic"><div class="chat_hint"><span>помощь робота</span></div></div>
 									<div class="click_user_popup option_popup">
 										<div class="click_user_popup_wrapper">
-											<div class="click_user_popup_row">
+											<div class="click_user_popup_row enabled"> <!---ENABLED FUCNTION-->
 												Стать роботом
 											</div>
-											<div class="click_user_popup_row">
+											<div class="click_user_popup_row disabled"> <!---DISABLED FUCNTION-->
 												Скрыть меня в списке
 											</div>
 											<div class="click_user_popup_row">
@@ -3637,16 +3635,16 @@
 			<div class="content_main_block" >
 				<!---NEWS LIST-->
 				<div class="left_column" >
-					<div class="news_block big_one">
+					<div class="news_block big_one no_image"> <!---BIG ONE NO IMAGE-->
 						<div class="top_news_part">
 							<span class="news_datetime">22 сентбря 17:22</span>
 							<span class="news_comments_number">444</span>
 							<span class="news_rating_place">8765</span>
 							
 						</div>
-						<div class="news_image_block">
+						<div class="news_image_block ">
 							<a class="img_link" href="#">
-							<img src="images/news_preview.jpg" alt="news_preview"/>
+							
 							<span class="news_plashka">
 								<span>Бла-бла-бла</span>
 							</span>
@@ -3829,7 +3827,7 @@
 							</div>
 						</div>
 					</div>
-										<div class="news_block normal_one">
+					<div class="news_block normal_one no_image"> <!---NORMAL ONE NO IMAGE-->
 						<div class="top_news_part">
 							<span class="news_datetime">22 марта 17:22</span>
 							<span class="news_comments_number">44</span>
@@ -3838,7 +3836,6 @@
 						</div>
 						<div class="news_image_block">
 							<a class="img_link" href="#">
-							<img src="images/news_preview.jpg" alt="news_preview"/>
 							<span class="news_plashka">
 								<span>Бла-бла-бла</span>
 							</span>
@@ -3855,7 +3852,7 @@
 					</div>
 					<div class="show_all_news">
 						<p>Показать все <span class="dotted">лучшие</span> материалы:</p>
-						<div class="input_block" id='show_all_news_popup'>  
+						<div class="input_block" id="show_all_news_popup">  
                                                     <select name="category_name">
                                                         <option value="" selected></option>
                                                         <option value="per_weel">За неделю</option>   
@@ -4057,6 +4054,28 @@
 								<span class="art_name no_img">Naughty Dog анонсировали the last of us 2 Part 2</span>
 							</div>
 							<div class="lots_of_text">
+							<ul>
+								<li>
+									jdifksjklsdfdsfsdfdsfds
+								</li>
+								<li>
+									jdifksjklsdfdsfsdfdsfds
+								</li>
+								<li>
+									jdifksjklsdfdsfsdfdsfds
+								</li>
+							</ul>
+							<ol>
+								<li>
+									jdifksjklsdfdsfsdfdsfds
+								</li>
+								<li>
+									jdifksjklsdfdsfsdfdsfds
+								</li>
+								<li>
+									jdifksjklsdfdsfsdfdsfds
+								</li>
+							</ol>
 								Dishonored (рус. Обесче́щенный) — компьютерная игра в жанре стелс-экшен от первого лица с элементами RPG, разработан
 ная французской компанией Arkane Studios и изданная Bethesda Softworks. Игра была выпущена для игровых приставок PlayStation 3 и Xbox 360, а также для персональных компьютеров на базе Microsoft Windows в 2012 году.
 
@@ -4160,6 +4179,45 @@
 											</div>
 										</div>
 									</div>
+									<div class="article_comment_row">
+										<div class="user_ava_comment">
+											<img src="images/full_news_pic.jpg" alt="user_avatar" width="50" height="50">
+										</div>
+										<div class="user_comment_text">
+											<a href="#">Aragorn1994</a>
+											<div class="user_comment">Ну допустим, что я просто даже не представляю, как бы мне так выразиться о том, что прекрасного происходит в вашей сраненькой игрульке. Казуалы сраные, но все-таки можно было бы сделать и как-то получше. 
+	Что будет если я вообще перестану комментировать ваши статеечки? </div>
+										
+										</div>
+										<div class="user_comment_options">
+											<div class="left_float">
+												<a class="answer_comment">ответить</a>
+												<a class="report_comment">пожаловаться</a>
+												<div class="report_popup">
+													<div class="report_header">
+														<span class="text">Причина</span>
+														<div class="close_report"></div>
+													</div>
+													<div class="report_options">
+														<span class="report_option">Оскорбления</span>
+														<span class="report_option">Мат</span>
+														<span class="report_option">Пропаганда насилия</span>
+														<span class="report_option">Расизм</span>
+													</div>
+												</div>
+											</div>
+											<div class="right_float">
+												<div class="rating_support">
+													<span class="plus_comment">323 <b>+</b></span>
+													<span class="support_comment">SUPP</span>
+													<span class="minus_comment">33 <b>-</b></span>
+												</div>
+												<div class="rating_position">
+													<span class="text">Рейтинг: <b>323</b></span>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 								<div class="article_comment_row">
 									<div class="user_ava_comment">
@@ -4199,6 +4257,291 @@
 											</div>
 										</div>
 									</div>
+									<!---ANSWER COMMENT-->
+									<div class="article_comment_row">
+										<div class="user_ava_comment">
+											<img src="images/full_news_pic.jpg" alt="user_avatar" width="50" height="50">
+										</div>
+										<div class="user_comment_text">
+											<a href="#">Aragorn1994</a>
+											<div class="user_comment">Ну допустим, что я просто даже не представляю, как бы мне так выразиться о том, что прекрасного происходит в вашей сраненькой игрульке. Казуалы сраные, но все-таки можно было бы сделать и как-то получше. 
+	Что будет если я вообще перестану комментировать ваши статеечки? </div>
+										
+										</div>
+										<div class="user_comment_options">
+											<div class="left_float">
+												<a class="answer_comment">ответить</a>
+												<a class="report_comment">пожаловаться</a>
+												<div class="report_popup">
+													<div class="report_header">
+														<span class="text">Причина</span>
+														<div class="close_report"></div>
+													</div>
+													<div class="report_options">
+														<span class="report_option">Оскорбления</span>
+														<span class="report_option">Мат</span>
+														<span class="report_option">Пропаганда насилия</span>
+														<span class="report_option">Расизм</span>
+													</div>
+												</div>
+											</div>
+											<div class="right_float">
+												<div class="rating_support">
+													<span class="plus_comment">323 <b>+</b></span>
+													<span class="support_comment">SUPP</span>
+													<span class="minus_comment">33 <b>-</b></span>
+												</div>
+												<div class="rating_position">
+													<span class="text">Рейтинг: <b>323</b></span>
+												</div>
+											</div>
+										</div>
+										
+										<div class="article_comment_row">
+											<div class="user_ava_comment">
+												<img src="images/full_news_pic.jpg" alt="user_avatar" width="50" height="50">
+											</div>
+											<div class="user_comment_text">
+												<a href="#">Aragorn1994</a>
+												<div class="user_comment">Ну допустим, что я просто даже не представляю, как бы мне так выразиться о том, что прекрасного происходит в вашей сраненькой игрульке. Казуалы сраные, но все-таки можно было бы сделать и как-то получше. 
+		Что будет если я вообще перестану комментировать ваши статеечки? </div>
+											
+											</div>
+											<div class="user_comment_options">
+												<div class="left_float">
+													<a class="answer_comment">ответить</a>
+													<a class="report_comment">пожаловаться</a>
+													<div class="report_popup">
+														<div class="report_header">
+															<span class="text">Причина</span>
+															<div class="close_report"></div>
+														</div>
+														<div class="report_options">
+															<span class="report_option">Оскорбления</span>
+															<span class="report_option">Мат</span>
+															<span class="report_option">Пропаганда насилия</span>
+															<span class="report_option">Расизм</span>
+														</div>
+													</div>
+												</div>
+												<div class="right_float">
+													<div class="rating_support">
+														<span class="plus_comment">323 <b>+</b></span>
+														<span class="support_comment">SUPP</span>
+														<span class="minus_comment">33 <b>-</b></span>
+													</div>
+													<div class="rating_position">
+														<span class="text">Рейтинг: <b>323</b></span>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									
+								</div>
+								<div class="article_comment_row">
+									<div class="user_ava_comment">
+										<img src="images/full_news_pic.jpg" alt="user_avatar" width="50" height="50">
+									</div>
+									<div class="user_comment_text">
+										<a href="#">Aragorn1994</a>
+										<div class="user_comment">Ну допустим, что я просто даже не представляю, как бы мне так выразиться о том, что прекрасного происходит в вашей сраненькой игрульке. Казуалы сраные, но все-таки можно было бы сделать и как-то получше. 
+Что будет если я вообще перестану комментировать ваши статеечки? </div>
+									
+									</div>
+									<div class="user_comment_options">
+										<div class="left_float">
+											<a class="answer_comment">ответить</a>
+											<a class="report_comment">пожаловаться</a>
+											<div class="report_popup">
+												<div class="report_header">
+													<span class="text">Причина</span>
+													<div class="close_report"></div>
+												</div>
+												<div class="report_options">
+													<span class="report_option">Оскорбления</span>
+													<span class="report_option">Мат</span>
+													<span class="report_option">Пропаганда насилия</span>
+													<span class="report_option">Расизм</span>
+												</div>
+											</div>
+										</div>
+										<div class="right_float">
+											<div class="rating_support">
+												<span class="plus_comment">323 <b>+</b></span>
+												<span class="support_comment">SUPP</span>
+												<span class="minus_comment">33 <b>-</b></span>
+											</div>
+											<div class="rating_position">
+												<span class="text">Рейтинг: <b>323</b></span>
+											</div>
+										</div>
+									</div>
+									
+										<div class="article_comment_row">
+											<div class="user_ava_comment">
+												<img src="images/full_news_pic.jpg" alt="user_avatar" width="50" height="50">
+											</div>
+											<div class="user_comment_text">
+												<a href="#">Aragorn1994</a>
+												<div class="user_comment">Ну допустим, что я просто даже не представляю, как бы мне так выразиться о том, что прекрасного происходит в вашей сраненькой игрульке. Казуалы сраные, но все-таки можно было бы сделать и как-то получше. 
+		Что будет если я вообще перестану комментировать ваши статеечки? </div>
+											
+											</div>
+											<div class="user_comment_options">
+												<div class="left_float">
+													<a class="answer_comment">ответить</a>
+													<a class="report_comment">пожаловаться</a>
+													<div class="report_popup">
+														<div class="report_header">
+															<span class="text">Причина</span>
+															<div class="close_report"></div>
+														</div>
+														<div class="report_options">
+															<span class="report_option">Оскорбления</span>
+															<span class="report_option">Мат</span>
+															<span class="report_option">Пропаганда насилия</span>
+															<span class="report_option">Расизм</span>
+														</div>
+													</div>
+												</div>
+												<div class="right_float">
+													<div class="rating_support">
+														<span class="plus_comment">323 <b>+</b></span>
+														<span class="support_comment">SUPP</span>
+														<span class="minus_comment">33 <b>-</b></span>
+													</div>
+													<div class="rating_position">
+														<span class="text">Рейтинг: <b>323</b></span>
+													</div>
+												</div>
+											</div>
+											
+											<div class="article_comment_row">
+												<div class="user_ava_comment">
+													<img src="images/full_news_pic.jpg" alt="user_avatar" width="50" height="50">
+												</div>
+												<div class="user_comment_text">
+													<a href="#">Aragorn1994</a>
+													<div class="user_comment">Ну допустим, что я просто даже не представляю, как бы мне так выразиться о том, что прекрасного происходит в вашей сраненькой игрульке. Казуалы сраные, но все-таки можно было бы сделать и как-то получше. 
+			Что будет если я вообще перестану комментировать ваши статеечки? </div>
+												
+												</div>
+												<div class="user_comment_options">
+													<div class="left_float">
+														<a class="answer_comment">ответить</a>
+														<a class="report_comment">пожаловаться</a>
+														<div class="report_popup">
+															<div class="report_header">
+																<span class="text">Причина</span>
+																<div class="close_report"></div>
+															</div>
+															<div class="report_options">
+																<span class="report_option">Оскорбления</span>
+																<span class="report_option">Мат</span>
+																<span class="report_option">Пропаганда насилия</span>
+																<span class="report_option">Расизм</span>
+															</div>
+														</div>
+													</div>
+													<div class="right_float">
+														<div class="rating_support">
+															<span class="plus_comment">323 <b>+</b></span>
+															<span class="support_comment">SUPP</span>
+															<span class="minus_comment">33 <b>-</b></span>
+														</div>
+														<div class="rating_position">
+															<span class="text">Рейтинг: <b>323</b></span>
+														</div>
+													</div>
+												</div>
+												
+												<div class="article_comment_row">
+													<div class="user_ava_comment">
+														<img src="images/full_news_pic.jpg" alt="user_avatar" width="50" height="50">
+													</div>
+													<div class="user_comment_text">
+														<a href="#">Aragorn1994</a>
+														<div class="user_comment">Ну допустим, что я просто даже не представляю, как бы мне так выразиться о том, что прекрасного происходит в вашей сраненькой игрульке. Казуалы сраные, но все-таки можно было бы сделать и как-то получше. 
+				Что будет если я вообще перестану комментировать ваши статеечки? </div>
+													
+													</div>
+													<div class="user_comment_options">
+														<div class="left_float">
+															<a class="answer_comment">ответить</a>
+															<a class="report_comment">пожаловаться</a>
+															<div class="report_popup">
+																<div class="report_header">
+																	<span class="text">Причина</span>
+																	<div class="close_report"></div>
+																</div>
+																<div class="report_options">
+																	<span class="report_option">Оскорбления</span>
+																	<span class="report_option">Мат</span>
+																	<span class="report_option">Пропаганда насилия</span>
+																	<span class="report_option">Расизм</span>
+																</div>
+															</div>
+														</div>
+														<div class="right_float">
+															<div class="rating_support">
+																<span class="plus_comment">323 <b>+</b></span>
+																<span class="support_comment">SUPP</span>
+																<span class="minus_comment">33 <b>-</b></span>
+															</div>
+															<div class="rating_position">
+																<span class="text">Рейтинг: <b>323</b></span>
+															</div>
+														</div>
+													</div>
+													
+													<div class="article_comment_row">
+														<div class="user_ava_comment">
+															<img src="images/full_news_pic.jpg" alt="user_avatar" width="50" height="50">
+														</div>
+														<div class="user_comment_text">
+															<a href="#">Aragorn1994</a>
+															<div class="user_comment">Ну допустим, что я просто даже не представляю, как бы мне так выразиться о том, что прекрасного происходит в вашей сраненькой игрульке. Казуалы сраные, но все-таки можно было бы сделать и как-то получше. 
+					Что будет если я вообще перестану комментировать ваши статеечки? </div>
+														
+														</div>
+														<div class="user_comment_options">
+															<div class="left_float">
+																<a class="answer_comment">ответить</a>
+																<a class="report_comment">пожаловаться</a>
+																<div class="report_popup">
+																	<div class="report_header">
+																		<span class="text">Причина</span>
+																		<div class="close_report"></div>
+																	</div>
+																	<div class="report_options">
+																		<span class="report_option">Оскорбления</span>
+																		<span class="report_option">Мат</span>
+																		<span class="report_option">Пропаганда насилия</span>
+																		<span class="report_option">Расизм</span>
+																	</div>
+																</div>
+															</div>
+															<div class="right_float">
+																<div class="rating_support">
+																	<span class="plus_comment">323 <b>+</b></span>
+																	<span class="support_comment">SUPP</span>
+																	<span class="minus_comment">33 <b>-</b></span>
+																</div>
+																<div class="rating_position">
+																	<span class="text">Рейтинг: <b>323</b></span>
+																</div>
+															</div>
+														</div>
+													</div>
+													
+												</div>
+												
+											</div>
+											
+										</div>
+									
 								</div>
 								<div class="article_comment_row">
 									<div class="user_ava_comment">
@@ -4970,6 +5313,76 @@
 		</div>
 		<span class="close_btn"></span>
 	</div>
+	<!---OTHER CATEGORY CHOOSE-->
+	<div class="other_category_choose">
+		<div class="category_string_name">
+			<span class="category_text">Категории</span>
+		</div>
+		<div class="category_filtr_line">
+			<input type="text" class="search_category_input" name="search_input_category" placeholder="Введите название категории"/>
+			<div class="choose_category_filter">
+				<span>сортировать по: </span>
+				<div class="checkboxes_wrapper">
+					<input type="radio" id="sort_by_abc" class="white_checkbox" name="sorting_category"/><label for="sort_by_abc">алфавиту</label>
+				</div>
+				<div class="checkboxes_wrapper">
+					<input type="radio" id="sort_by_people" class="white_checkbox" name="sorting_category"/><label for="sort_by_people">зрителям</label>
+				</div>
+			</div>
+		</div>
+		<div class="category_choose_wrapper">
+			<div class="category_choose">
+				<div class="category_choose-category">
+					<img src="images/category_choose_pic.jpg" width="140" height="260" />
+					<div class="black_filtr"></div>
+					<div class="category_choose_info">
+						<span class="category_choose_name">Defend of the Alience 2: Return of the King</span>
+						<span class="category_choose_genre">MOBA game</span>
+						<span class="category_choose_people">зрителей: 6782</span>
+					</div>
+				</div>
+				<div class="category_choose-category">
+					<img src="images/category_choose_pic.jpg" width="140" height="260" />
+					<div class="black_filtr"></div>
+					<div class="category_choose_info">
+						<span class="category_choose_name">Sc2:HOTS</span>
+						<span class="category_choose_genre">dead game</span>
+						<span class="category_choose_people">зрителей: 2</span>
+					</div>
+				</div>
+				<div class="category_choose-category">
+					<img src="images/category_choose_pic.jpg" width="140" height="260" />
+					<div class="black_filtr"></div>
+					<div class="category_choose_info">
+						<span class="category_choose_name">LOL</span>
+						<span class="category_choose_genre">MOBA game</span>
+						<span class="category_choose_people">зрителей: 99992</span>
+					</div>
+				</div>
+				<div class="category_choose-category">
+					<img src="images/category_choose_pic.jpg" width="140" height="260" />
+					<div class="black_filtr"></div>
+					<div class="category_choose_info">
+						<span class="category_choose_name">LOL</span>
+						<span class="category_choose_genre">MOBA game</span>
+						<span class="category_choose_people">зрителей: 99992</span>
+					</div>
+				</div>
+				<div class="category_choose-category">
+					<img src="images/category_choose_pic.jpg" width="140" height="260" />
+					<div class="black_filtr"></div>
+					<div class="category_choose_info">
+						<span class="category_choose_name">LOL</span>
+						<span class="category_choose_genre">MOBA game</span>
+						<span class="category_choose_people">зрителей: 99992</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="how_much_found">найдено <span>2076</span> категорий</div>
+		<div class="close_category"></div>
+	</div>
+	<div class="fade"></div>
 </div>
 </body>
 </html>
