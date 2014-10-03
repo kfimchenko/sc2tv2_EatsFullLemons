@@ -1474,7 +1474,7 @@ destroy :function(){
 	//Raspisanie();
 	
 	//connecting lines top menu
-	RePain();
+	//RePain(); //t0s убрано при инициализации
 	RePain2();
 	Rating_lines();
 	Rating_lines_room();
