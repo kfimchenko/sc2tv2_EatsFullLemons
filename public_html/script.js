@@ -71,7 +71,8 @@ $(document).ready(function(){
 	$(".user_streams_list_wrapper").css('width',horizontal_block_podpiski_width);
 	var horizontal_block_ignorelist_width=$(".user_streams_ignore_list .favorite_stream").size()*265;//265 - outerWidth
 	$(".user_streams_ignore_list_wrapper").css('width',horizontal_block_ignorelist_width);
-	
+	var horizontal_block_choose_category_width=$('.category_choose .category_choose-category').size()*141;
+	$('.category_choose').css('width',horizontal_block_choose_category_width);
 
 	//if it's streamer page, then change it's width:
 	if ($('#streams_part .left_column').hasClass('streamers_page')) {
@@ -320,6 +321,21 @@ $(document).ready(function(){
 		});
 	/*GROUP ONCLICK FINCTIONS*/
 	
+	//FADE
+	$('.fade').click(function(){
+		$('.other_category_choose').css('visibility','hidden');
+		$(this).hide();
+	});
+	//open choose category popup
+	$('.show_category_search').click(function(){
+		$('.other_category_choose').css('visibility','visible');
+		$('.fade').show();
+	});
+	//close category choose popup
+	$('.close_category').click(function(){
+		$('.other_category_choose').css('visibility','hidden');
+		$('.fade').hide();
+	});
 	//hide user_in_chat_list when clicking on someone's nick
 	$('.user_in_chat_row').click(function(){
 		$('.who_is_in_chat').hide();
@@ -443,6 +459,16 @@ $(document).ready(function(){
 	$('.click_user_popup_row').click(function(){
 		$('.click_user_popup').hide();
 		$('.chat_images .chat_pic').removeClass('active');
+		if ($(this).hasClass('enabled'))
+		{
+			$(this).removeClass('enabled');
+			$(this).addClass('disabled');
+		}
+		else if ($(this).hasClass('disabled'))
+		{
+			$(this).removeClass('disabled');
+			$(this).addClass('enabled');
+		}
 	});
 	$('.chat_smiles').click(function(){
 		$('.click_user_popup.smaili').hide();
@@ -1293,7 +1319,12 @@ destroy :function(){
 		 scrollInertia: 950,
 			mouseWheel:{ scrollAmount: 1000 }
 	});
-	
+	$(".category_choose_wrapper").mCustomScrollbar({
+		 axis:"x",
+		 theme:"light",
+		 scrollInertia: 950,
+			mouseWheel:{ scrollAmount: 1000 }
+	});
 	/*GROUP OF CUSTOM CHECKBOXES*/
 	
 	$('.blue_checkbox').iCheck({
@@ -1301,9 +1332,10 @@ destroy :function(){
 		checkboxClass: 'icheckbox_futurico',
 		radioClass: 'icheckbox_futurico2'
 	});
-	$('.grey_checkbox').iCheck({
+	$('.white_checkbox').iCheck({
 		cursor: true,
-		checkboxClass: 'icheckbox_futurico'
+		checkboxClass: 'icheckbox_futurico_white',
+		radioClass:'icheckbox_futurico_white'
 	});
 	$('.anonsi_checkbox').iCheck({
 		cursor: true,
@@ -1314,7 +1346,16 @@ destroy :function(){
 		radioClass: 'icheckbox_black'
 	});
 	
-      
+    //SOME HOVER
+	//show number of people in choose category popup
+	$('.category_choose-category').hover(function(){
+		$(this).find('.category_choose_people').show();
+		$(this).find('.black_filtr').css("background","rgba(0,0,0,0)");
+		}, 
+		function() {
+		$(this).find('.category_choose_people').hide();
+		$(this).find('.black_filtr').css("background","rgba(0,0,0,0.5)");
+	});
 	
 	/*GROUP OF CUSTOM SELECTBOXES*/
 	
@@ -1476,8 +1517,7 @@ destroy :function(){
 	//connecting lines top menu
 	//RePain(); //t0s убрано при инициализации
 	RePain2();
-	Rating_lines();
-	Rating_lines_room();
+
 	/*$('.random_punkt').click(function(){
 		script_message_popup("dolgovec","error!");
 	});*/
@@ -1535,110 +1575,7 @@ function Resize_rooms(){
 			$('.all_rooms_wrapper_with_shadow .normal_one.big_one').removeClass('big_one');
 		}
 }
-//IF YOU NEED TO USE THIS RATING SOMEWHERE ELSE - GIVE EXECTLY SORCE AND TARGET, WITH TOP PARENT (IN ORDER THAT SCRIPTS NOT BEEN IN A CONFLICT)
-//CONNECTING LINES FOR OPEN ROOM
-function Rating_lines_room(){
-//so much aaray cuz i needed to customize every fucking line <- don't cry
-	var Bottom = new Array(6);
-		Bottom =[1,0,0,0,-1,4];
-	var Bottom2 = new Array(6);
-		Bottom2 =[1,0,0,0,-8,7];
-	var Bottom3 = new Array(6);
-		Bottom3 =[1,0,0,0,-5,4];
-	var Bottom4 = new Array(6);
-		Bottom4 =[1,0,0,0,-8,7];
-	var Bottom5 = new Array(6);
-		Bottom5 =[1,0,0,0,-6,2];
-	var Bottom6 = new Array(6);
-		Bottom6 =[1,0,0,0,-1,4];
-		
-		jsPlumb.connect({
-		source:$('.open_room .main_rating'), 
-		target:$('.open_room .plusses_rating'),
-		connector:[ "Straight"],
-		endpoint:[ "Dot", { 
-		  radius:1
-		}],
-		endpointStyle:{ fillStyle:"#fff", outlineColor:"#fff" },
-		anchors:[Bottom,Bottom2],
-		paintStyle:{ strokeStyle:"#035392",lineWidth:1} 
-	});
-	jsPlumb.connect({
-		source:$('.open_room .money_rating'), 
-		target:$('.open_room .minuses_rating'),
-		connector:[ "Straight"],
-		endpoint:[ "Dot", { 
-		  radius:1
-		}],
-		endpointStyle:{ fillStyle:"#fff", outlineColor:"#fff" },
-		anchors:[Bottom6,Bottom5],
-		paintStyle:{ strokeStyle:"#035392",lineWidth:1} 
-	});
-	jsPlumb.connect({
-		source:$('.open_room .money_rating'), 
-		target:$('.open_room .plusses_rating'),
-		connector:[ "Straight"],
-		endpoint:[ "Dot", { 
-		  radius:1
-		}],
-		endpointStyle:{ fillStyle:"#fff", outlineColor:"#fff" },
-		anchors:[Bottom3,Bottom4],
-		paintStyle:{ strokeStyle:"#035392",lineWidth:1} 
-	});
-		
-}
 
-//CONNECTING LINES FOR STREAMER PAGE RATINIG BLOCK
-function Rating_lines(){
-//so much aaray cuz i needed to customize every fucking line
-	var Bottom = new Array(6);
-		Bottom =[1,0,0,0,-1,4];
-	var Bottom2 = new Array(6);
-		Bottom2 =[1,0,0,0,-8,7];
-	var Bottom3 = new Array(6);
-		Bottom3 =[1,0,0,0,-5,4];
-	var Bottom4 = new Array(6);
-		Bottom4 =[1,0,0,0,-8,7];
-	var Bottom5 = new Array(6);
-		Bottom5 =[1,0,0,0,-6,2];
-	var Bottom6 = new Array(6);
-		Bottom6 =[1,0,0,0,-1,4];
-		
-		jsPlumb.connect({
-		source:$('.user_stream_page .main_rating'), 
-		target:$('.user_stream_page .plusses_rating'),
-		connector:[ "Straight"],
-		endpoint:[ "Dot", { 
-		  radius:1
-		}],
-		endpointStyle:{ fillStyle:"#fff", outlineColor:"#fff" },
-		anchors:[Bottom,Bottom2],
-		paintStyle:{ strokeStyle:"#035392",lineWidth:1} 
-	});
-	jsPlumb.connect({
-		source:$('.user_stream_page .money_rating'), 
-		target:$('.user_stream_page .minuses_rating'),
-		connector:[ "Straight"],
-		endpoint:[ "Dot", { 
-		  radius:1
-		}],
-		endpointStyle:{ fillStyle:"#fff", outlineColor:"#fff" },
-		anchors:[Bottom6,Bottom5],
-		paintStyle:{ strokeStyle:"#035392",lineWidth:1} 
-	});
-	jsPlumb.connect({
-		source:$('.user_stream_page .money_rating'), 
-		target:$('.user_stream_page .plusses_rating'),
-		connector:[ "Straight"],
-		endpoint:[ "Dot", { 
-		  radius:1
-		}],
-		endpointStyle:{ fillStyle:"#fff", outlineColor:"#fff" },
-		anchors:[Bottom3,Bottom4],
-		paintStyle:{ strokeStyle:"#035392",lineWidth:1} 
-	});
-		
-}
 
 //OLD RASPISANIE CONNECTING LINES
 function Raspisanie(){
