@@ -83,6 +83,8 @@ $(document).ready(function(){
 		$('#streams_part .left_column').css("width",$('#streams_part').width()-$('#streams_part .right_column').outerWidth(true)-10+"px"); //shirina levoi kolonki vverhu strima
 	$('.top_streams_menu .top_right_streams_menu').css("width",$('#streams_part .top_streams_menu').width()-$('#streams_part .top_left_streams_menu').outerWidth( true )-10+"px");// shirina top menu s lini9mi
 	
+
+
 	$('.all_streams_wrapper .normal_one').first().css('clear','left');
 	
 	$('.content_grey_block .left_column').css("width",$('.content_grey_block').width()-$('.content_grey_block .right_column').outerWidth(true)-($('.content_grey_block').width()*0.013)-11+"px"); //shirina levoi kolonki v grey bloke
@@ -537,36 +539,36 @@ $(document).ready(function(){
 			$(".user_profile").css('visibility','visible');
 	});
 	//top_left_streamers_menu
-	$('.top_left_menu_column_text span').click(function(){
-		$('.top_left_menu_column_text span').each(function(){
+	$('.dynamic_left_menu_column_text span').click(function(){
+		$('.dynamic_left_menu_column_text span').each(function(){
 			$(this).removeClass('active');
-			$('.top_left_menu_column_numbers .number').removeClass('active');
+			$('.dynamic_left_menu_column_numbers .number').removeClass('active');
 		});
 		//ничего более умного, как перебором не смог связать текст и цифры в разных блоках (а по дизайну они должны быть в разных блоках)
 		if ($(this).hasClass('first'))
-			$('.top_left_menu_column_numbers .number.first').addClass('active');
+			$('.dynamic_left_menu_column_numbers .number.first').addClass('active');
 		else if ($(this).hasClass('second'))
-			$('.top_left_menu_column_numbers .number.second').addClass('active');
+			$('.dynamic_left_menu_column_numbers .number.second').addClass('active');
 		else if ($(this).hasClass('third'))
-			$('.top_left_menu_column_numbers .number.third').addClass('active');
+			$('.dynamic_left_menu_column_numbers .number.third').addClass('active');
 		$(this).addClass('active');
-		$('.top_streams_menu .top_right_streams_menu').css("width",$('.top_streams_menu').width()-$('.top_left_streams_menu').outerWidth( true )-5+"px"); //resize big menu
+		$('.dynamic_filter_menu .dynamic_right_filter_menu').css("width",$('.dynamic_filter_menu').width()-$('.dynamic_left_filter_menu').outerWidth( true )-5+"px"); //resize big menu
 		RePain();//call it because we've chenged our menu width
 	});
 	//ничего более умного, как перебором не смог связать текст и цифры в разных блоках (а по дизайну они должны быть в разных блоках)
-	$('.top_left_menu_column_numbers span').click(function(){
-		$('.top_left_menu_column_numbers span').each(function(){
+	$('.dynamic_left_menu_column_numbers span').click(function(){
+		$('.dynamic_left_menu_column_numbers span').each(function(){
 			$(this).removeClass('active');
-			$('.top_left_menu_column_text .text').removeClass('active');
+			$('.dynamic_left_menu_column_text .text').removeClass('active');
 		});
 		if ($(this).hasClass('first'))
-			$('.top_left_menu_column_text .text.first').addClass('active');
+			$('.dynamic_left_menu_column_text .text.first').addClass('active');
 		else if ($(this).hasClass('second'))
-			$('.top_left_menu_column_text .text.second').addClass('active');
+			$('.dynamic_left_menu_column_text .text.second').addClass('active');
 		else if ($(this).hasClass('third'))
-			$('.top_left_menu_column_text .text.third').addClass('active');
+			$('.dynamic_left_menu_column_text .text.third').addClass('active');
 		$(this).addClass('active');
-		$('.top_streams_menu .top_right_streams_menu').css("width",$('.top_streams_menu').width()-$('.top_left_streams_menu').outerWidth( true )-5+"px");//resize big menu
+		$('.dynamic_filter_menu .dynamic_right_filter_menu').css("width",$('.dynamic_filter_menu').width()-$('.dynamic_left_filter_menu').outerWidth( true )-5+"px");//resize big menu
 		RePain();//call it because we've chenged our menu width
 		
 	});
@@ -607,25 +609,25 @@ $(document).ready(function(){
 	});
 	
 	//repaint lines in top menu
-	$('.top_first_menu a').click(function(){
-		jsPlumb.detachAllConnections($(".top_second_menu .second_active")); //removing all lines from the code!!! very important!!!!!
-		$('.top_first_menu a').each(function(){
+	$('.dynamic_first_menu a').click(function(){
+		jsPlumb.detachAllConnections($(".dynamic_second_menu .second_active")); //removing all lines from the code!!! very important!!!!!
+		$('.dynamic_first_menu a').each(function(){
 			$(this).removeClass('first_active');
 		});
 		$(this).addClass('first_active');
 		RePain();
 	});
-	$('.top_second_menu a').click(function(){
-		jsPlumb.detachAllConnections($(".top_second_menu .second_active")); //removing all lines from the code!!! very important!!!!!
-		$('.top_second_menu a').each(function(){
+	$('.dynamic_second_menu a').click(function(){
+		jsPlumb.detachAllConnections($(".dynamic_second_menu .second_active")); //removing all lines from the code!!! very important!!!!!
+		$('.dynamic_second_menu a').each(function(){
 			$(this).removeClass('second_active');
 		});
 		$(this).addClass('second_active');
 		RePain();
 	});
-	$('.top_third_menu a').click(function(){
-		jsPlumb.detachAllConnections($(".top_second_menu .second_active")); //removing all lines from the code!!! very important!!!!!
-		$('.top_third_menu a').each(function(){
+	$('.dynamic_third_menu a').click(function(){
+		jsPlumb.detachAllConnections($(".dynamic_second_menu .second_active")); //removing all lines from the code!!! very important!!!!!
+		$('.dynamic_third_menu a').each(function(){
 			$(this).removeClass('third_active');
 		});
 		$(this).addClass('third_active');
