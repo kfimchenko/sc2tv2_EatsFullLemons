@@ -920,7 +920,7 @@ font-size:16px;
 padding:4px 18px 6px 23px;
 font-size:16px;
 }
-.dynamic_first_menu .dynamic_menu_a.first_active, .dynamic_second_menu .dynamic_menu_a.second_active , .dynamic_third_menu .dynamic_menu_a.third_active {
+.dynamic_first_menu .dynamic_menu_a.filter_active, .dynamic_second_menu .dynamic_menu_a.filter_active , .dynamic_third_menu .dynamic_menu_a.filter_active {
 background:#0390d9;
 color:#000;
 }

@@ -612,25 +612,25 @@ $(document).ready(function(){
 	$('.dynamic_first_menu a').click(function(){
 		jsPlumb.detachAllConnections($(".dynamic_second_menu .second_active")); //removing all lines from the code!!! very important!!!!!
 		$('.dynamic_first_menu a').each(function(){
-			$(this).removeClass('first_active');
+			$(this).removeClass('filter_active');
 		});
-		$(this).addClass('first_active');
+		$(this).addClass('filter_active');
 		RePain();
 	});
 	$('.dynamic_second_menu a').click(function(){
 		jsPlumb.detachAllConnections($(".dynamic_second_menu .second_active")); //removing all lines from the code!!! very important!!!!!
 		$('.dynamic_second_menu a').each(function(){
-			$(this).removeClass('second_active');
+			$(this).removeClass('filter_active');
 		});
-		$(this).addClass('second_active');
+		$(this).addClass('filter_active');
 		RePain();
 	});
 	$('.dynamic_third_menu a').click(function(){
 		jsPlumb.detachAllConnections($(".dynamic_second_menu .second_active")); //removing all lines from the code!!! very important!!!!!
 		$('.dynamic_third_menu a').each(function(){
-			$(this).removeClass('third_active');
+			$(this).removeClass('filter_active');
 		});
-		$(this).addClass('third_active');
+		$(this).addClass('filter_active');
 		RePain();
 	});
 	//repaint lines in content menu
