@@ -4144,6 +4144,10 @@ width:95.4%;
 .article_comment_row .article_comment_row .article_comment_row .article_comment_row{
 width:95.5%;
 }
+.article_comment_row .article_comment_row .article_comment_row .article_comment_row .article_comment_row .article_comment_row .article_comment_row{
+margin-left:-30px;
+width:100%;
+}
 /*
 .article_comment_row:hover{
 background:#d0d5e0;
@@ -4348,11 +4352,11 @@ font-size:18px;
 .enter_comment {
     float: left;
 	padding-top: 41px;
-    padding-left: 20px;
 	background:none repeat scroll 0 0 #eef1f7;
+	width: 100%;
 }
 .enter_comment > form {
-    width: 765px;
+    width: 92%;
 }
 .comment_textarea{
 resize: none;
@@ -4360,7 +4364,7 @@ color:#666666;
 font-size:15px;
 padding:15px 11px;
 height:38px;
-width:709px;
+width:91%;
 border:1px solid #cfd7e4;
 border-radius:1px;
 background:#fbfcfd;
@@ -4926,6 +4930,11 @@ top:100px;
 left:25%;
 display:none;
 z-index:20;
+}
+@media screen and (max-width: 1200px){
+.create_stream_popup{
+top:10px;
+}
 }
 .create_stream_popup .top_tab_registr{
 padding-right:44px;
